@@ -6,6 +6,7 @@ import Movie from "../Movie/movie";
 function Listing() {
   // need a function to display the listins in a section tag with the movie articles
   const [MovieListing, setMovieListing] = useState({});
+  const [reRendersts, setReRendersts] = useState(null);
   useEffect(() => {
     const listingApi = async () => {
       const responses = await Promise.all(
@@ -29,14 +30,18 @@ function Listing() {
   }, []);
 
   //when viewing the single listing page render the listing component with the listing listing
+  function reRender(list) {
+    setReRendersts(list);
+  }
   return (
     <>
       {Object.entries(MovieListing).map(([list, movies]) => (
         <section key={list}>
           <h2>{list}</h2>
+          <button onClick={reRender}>{list}</button>
 
           {movies.map((movie) => (
-          <Movie key={movie.id} movie={movie} />
+            <Movie key={movie.id} movie={movie} />
           ))}
         </section>
       ))}
