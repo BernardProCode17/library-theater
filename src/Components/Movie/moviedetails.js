@@ -2,8 +2,6 @@ import { useContext } from "react";
 import api from "../Helper/api";
 import { MovieContext } from "../Helper/context";
 
-
-
 function MovieDetails() {
    const context = useContext(MovieContext);
 
