@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import "./movie.css";
+import { useParams } from "react-router-dom";
+
 function Movie({ movie, key }) {
   const {
     title,
@@ -10,6 +13,14 @@ function Movie({ movie, key }) {
     genre,
     credit,
   } = movie || {};
+  const { id } = useParams();
+  const [MovieDetail, setMovieDetails] = useState(null);
+
+  useEffect(() =>{
+    if (id){
+      api.getMovie(id)
+    }
+  }, [id])
 
   return (
     <div>
@@ -21,6 +32,9 @@ function Movie({ movie, key }) {
         <p>Rating: {(popularity * 100 / 100 ).toFixed(1)}%</p>
         <p>{genre}</p>
         
+        {/* <Link to={`/movie/${id}`}>
+        More info
+        </Link> */}
         
       </article>
 
