@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import api from "../Helper/api";
 import Movie from "../Movie/movie";
+import { MovieContext } from "../Helper/context";
 import { Link, useNavigate } from "react-router-dom";
 
 function Listing() {
@@ -9,6 +10,7 @@ function Listing() {
   const [MovieListing, setMovieListing] = useState({});
   const [reRendersts, setReRendersts] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
+  const {setContext} = useContext(MovieContext)
   const history = useNavigate();
 
   useEffect(() => {
@@ -27,14 +29,13 @@ function Listing() {
       );
 
       setMovieListing(data);
-      console.log(data);
     };
 
     listingApi();
     window.scrollTo(0, 0);
   }, [reRendersts]);
 
-  //when viewing the single listing page render the listing component with the listing listing
+  
   function reRender(list) {
     setSelectedSection((prevSection) => (prevSection === list ? null : list));
     setReRendersts(!reRendersts);
@@ -61,12 +62,13 @@ function Listing() {
 
           {(selectedSection === null || selectedSection === list) &&
             movies.map((movie) => (
-              <>
-                <Movie movie={movie} />
-                <Link to={`/movie/${movie.id}`}>
+              <div onClick={()=> setContext(movie)}>
+                <Movie key={movie.id} movie={movie} />
+                <Link
+                  to={`/moviedetails/${movie.id}`}>
                   <button>More Info</button>
                 </Link>
-              </>
+              </div>
             ))}
         </section>
       ))}

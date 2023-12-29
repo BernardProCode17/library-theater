@@ -8,8 +8,9 @@ const api = {
     "Now Playing":"/movie/now_playing?api_key=0aa563555938527c74fc37fad25578db",
     "Upcoming":"/movie/upcoming?api_key=0aa563555938527c74fc37fad25578db",
   },
-  getMovie: function (id) {
-    return fetch(`/api/movies/${id}`).then((response) => response.json());
+  getMovie: async function (id) {
+    const response = await fetch(`/api/movies/${id}?0aa563555938527c74fc37fad25578db`);
+    return await response.json();
   }
 }
 export default api;

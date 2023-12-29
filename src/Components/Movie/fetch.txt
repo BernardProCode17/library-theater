@@ -1,0 +1,16 @@
+<section className="cast">
+        {credit &&
+          Array.isArray(credit.cast) &&
+          credit.cast.slice(0, 10).map((person, index) => {
+            return (
+              <figure key={index}>
+                <img
+                  src={`${api.apiImage}${person.profile_path}`}
+                  alt={person.name}
+                />
+                <p>Actor: {person.name}</p>
+                <p>Character: {person.character}</p>
+              </figure>
+            );
+          })}
+      </section>
