@@ -1,0 +1,10 @@
+.cast{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   
+   & figure img {
+      width: 150px;
+   }
+}
