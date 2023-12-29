@@ -1,18 +1,19 @@
 import "./App.css";
-import { useState } from "react";
-// import { currentYear } from "../Components/Helper/Year.js";
-import Movie from "../Components/Movie/movie.js";
-import Fetch from "../Components/Helper/fetch.js";
-import api from "../Components/Helper/api.js";
-function App() {
-  const [apiData, setApiData] = useState();
-  Fetch(setApiData);
+import Main from "../Components/Main/Main.js";
+import Header from "../Components/Header/Header.js";
+import { Router } from "react-router-dom";
 
+function App() {
   return (
-    <div className="App">
-      <h1>React Movie</h1>
-      <Movie data={apiData} />
-    </div>
+
+    <Router>
+
+      <div className="App">
+        <Header />
+        <Main />
+      </div>
+      
+    </Router>
   );
 }
 

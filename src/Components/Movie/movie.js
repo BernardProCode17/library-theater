@@ -1,6 +1,6 @@
 import api from "../Helper/api";
 import "./movie.css";
-function Movie({ data }) {
+function Movie({ movie, key }) {
   const {
     title,
     overview,
@@ -9,17 +9,16 @@ function Movie({ data }) {
     popularity,
     genre,
     credit,
-  } = data || {};
-  console.log(genre);
+  } = movie || {};
 
   return (
     <div>
       <article>
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>Description: {overview}</p>
         <p>Release Date: {release_date}</p>
-        <p>Rating: {(popularity * 0.1).toFixed(1)}%.</p>
+        <p>Rating: {(popularity * 100 / 100 ).toFixed(1)}%</p>
         <p>{genre}</p>
         
         
