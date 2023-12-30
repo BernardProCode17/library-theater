@@ -5,7 +5,7 @@
    position: relative;
    top: 0;
 
-   .Nav {
+   & .Nav {
       position: relative;
       top: 0;
       z-index: 100;
@@ -13,26 +13,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: aliceblue;
-      visibility: hidden;
+      background-color: rgb(240, 248, 255, 0.5);
+      /* visibility: hidden; */
    }
-
-   .Nav:hover {
-      visibility: visible;
-      position: relative;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: aliceblue;
-   }
-
+      
    .Nav img {
       width: 250px;
       margin: 10%;
    }
-
+   
    .Nav ul {
       display:flex;
       justify-content: space-between;
@@ -44,7 +33,27 @@
       font-size: 1.5rem;
       
       & li a {
-         text-decoration: none;      
+         text-decoration: none;  
+         color: blue;
+         padding: 0.5rem;   
+         text-align: start; 
+      }
+
+      & li a:hover {
+         /* text-decoration: underline; */
+         box-shadow: 0.5px 0.5px 3px rgba(0, 0, 255, 0.279), 
+         -0.3px -0.3px 3px;
+         border-radius: 5px;
       }
    }
+   /* & .Nav:hover {
+      position: relative;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: aliceblue;
+      visibility: visible;
+   } */
 }
