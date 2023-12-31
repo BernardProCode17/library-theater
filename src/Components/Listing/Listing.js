@@ -1,3 +1,4 @@
+import "./Listing.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import api from "../Helper/api";
@@ -10,7 +11,7 @@ function Listing() {
   const [MovieListing, setMovieListing] = useState({});
   const [reRendersts, setReRendersts] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
-  const {setContext} = useContext(MovieContext)
+  const { setContext } = useContext(MovieContext);
   const history = useNavigate();
 
   useEffect(() => {
@@ -35,7 +36,6 @@ function Listing() {
     window.scrollTo(0, 0);
   }, [reRendersts]);
 
-  
   function reRender(list) {
     setSelectedSection((prevSection) => (prevSection === list ? null : list));
     setReRendersts(!reRendersts);
@@ -48,8 +48,10 @@ function Listing() {
   return (
     <>
       {selectedSection && <button onClick={back}>Back</button>}
+
       {Object.entries(MovieListing).map(([list, movies]) => (
-        <section key={list}>
+        <section key={list.id} className="Listing">
+          <div className="title-button">
           {(selectedSection === null || selectedSection === list) && (
             <h2>{list}</h2>
           )}
@@ -59,17 +61,12 @@ function Listing() {
               onClick={() => reRender(list)}
             >{`View More ${list}`}</button>
           )}
+          </div>
 
+            <div className="articles">
           {(selectedSection === null || selectedSection === list) &&
-            movies.map((movie) => (
-              <div onClick={()=> setContext(movie)}>
-                <Movie key={movie.id} movie={movie} />
-                <Link
-                  to={`/moviedetails/${movie.id}`}>
-                  <button>More Info</button>
-                </Link>
-              </div>
-            ))}
+            movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+            </div>
         </section>
       ))}
     </>

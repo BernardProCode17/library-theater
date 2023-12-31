@@ -1,9 +1,30 @@
-.cast{
+.MovieArticle {
+   display: flex;
+   flex-direction: column;
+   justify-self: center;
+   align-items: center;
+   flex-wrap: wrap;
+   max-width: 400px;
+   background-color: aquamarine;
+   margin-bottom: 1rem;
+
+   & h3, p {
+     padding: 0rem 1rem;
+   }
+
+   & numberInfo p {
+      display: flex;
+      justify-content: space-evenly;
+   }
+}
+
+
+.cast {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    align-items: center;
-   
+
    & figure img {
       width: 150px;
    }

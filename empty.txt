@@ -1,0 +1,15 @@
+<div>
+   <div>
+      <article>
+         <img src="https://image.tmdb.org/t/p/w500//6epeijccmJlnfvFitfGyfT7njav.jpg" alt="Rebel Moon - Part One: A Child of Fire">
+         <h3>Rebel Moon - Part One: A Child of Fire</h3>
+         <p>Description: When a peaceful colony on the edge of the galaxy finds itself threatened by the armies of the tyrannical Regent Balisarius, they dispatch Kora, a young woman with a mysterious past, to seek out warriors from neighboring planets to help them take a stand.</p>
+         <p>Release Date: 2023-12-15</p>
+         <p>Rating: 2458.5%</p>
+         <p></p>
+      </article>
+   </div>
+         <a href="/moviedetails/848326">
+            <button>More Info</button>
+         </a>
+</div>

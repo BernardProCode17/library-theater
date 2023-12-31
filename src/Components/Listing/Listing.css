@@ -1,0 +1,46 @@
+.Listing {
+   background-color: azure;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+   & .title-button {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 3rem;
+      width: 100%;
+      position: relative;
+      top: 0;
+      background-color: rgba(133, 247, 247, 0.271);
+
+      & h2 {
+         position: absolute;
+         left: 50%;
+         font-size: 3rem;
+      }
+
+      & button {
+         font-size: 1.3rem;
+         padding: 0.5rem;
+         position: absolute;
+         right: 1rem;
+         border: none;
+         background-color: transparent;
+      }
+
+      & button:hover {
+         text-decoration: underline;
+      }
+   }
+
+   & .articles {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-content: center;
+      margin-top: 2rem;
+   }
+}

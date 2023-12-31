@@ -1,3 +1,4 @@
+import './Main.css'
 import { Routes, Route } from "react-router-dom";
 import Listing from "../Listing/Listing";
 import MovieDetails from "../Movie/moviedetails";
@@ -7,7 +8,7 @@ import { useState } from "react";
 function Main() {
   const [context, setContext] = useState(null);
   return (
-    <main>
+    <main className="Main">
       <MovieContext.Provider value={{ context, setContext }}>
         <Routes>
           <Route path="*" element={<Listing />}></Route>

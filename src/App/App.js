@@ -1,4 +1,6 @@
 import "./App.css";
+import './normalize_reset.css'
+
 import Main from "../Components/Main/Main.js";
 import Header from "../Components/Header/Header.js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
