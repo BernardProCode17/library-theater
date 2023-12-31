@@ -11,6 +11,7 @@ function Listing() {
   const [MovieListing, setMovieListing] = useState({});
   const [reRendersts, setReRendersts] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
+  const [displayCount, setDisplaycount] = useState(6)
   const { setContext } = useContext(MovieContext);
   const history = useNavigate();
 
@@ -39,6 +40,7 @@ function Listing() {
   function reRender(list) {
     setSelectedSection((prevSection) => (prevSection === list ? null : list));
     setReRendersts(!reRendersts);
+    setDisplaycount(MovieListing.length)
   }
 
   function back() {
@@ -65,7 +67,7 @@ function Listing() {
 
             <div className="articles">
           {(selectedSection === null || selectedSection === list) &&
-            movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
+            movies.slice(0, displayCount).map((movie) => <Movie key={movie.id} movie={movie} />)}
             </div>
         </section>
       ))}

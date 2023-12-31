@@ -6,16 +6,29 @@
    flex-wrap: wrap;
    max-width: 400px;
    background-color: aquamarine;
-   margin-bottom: 1rem;
+   margin-bottom: 3rem;
 
-   & h3, p {
-     padding: 0rem 1rem;
+   &.MovieDetails {
+      display: none;
    }
 
-   & numberInfo p {
-      display: flex;
-      justify-content: space-evenly;
+   &.MoviesDetails:hover {
+      display: block;
+
+      & h3,
+      p {
+         padding: 0rem 1rem;
+      }
+
+      & .numberInfo {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-evenly;
+         column-gap: 3rem;
+      }
    }
+
+
 }
 
 

@@ -10,18 +10,25 @@ function Movie({ movie }) {
   return (
     <article className="MovieArticle">
       <img src={`${api.apiImage}${poster_path}`} alt={title} />
+      
+      <div className="MovieDetails">
       <h3>{title}</h3>
+
       <p>Description: {overview}</p>
 
       <div className="numberInfo">
-      <p>Release Date: {release_date}</p>
-      <p>Rating: {((popularity * 100) / 100).toFixed(1)}%</p>
+      <p>Release Date:<br></br>{release_date}</p>
+      <p>Rating: <br></br> {((popularity * 100) / 100).toFixed(1)}%</p>
       <p>genre</p>
       </div>
 
       <Link to={`/moviedetails/${movie.id}`}>
         More Info
       </Link>
+
+      </div>
+
+     
     </article>
   );
 }
