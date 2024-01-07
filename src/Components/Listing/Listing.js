@@ -47,12 +47,14 @@ function Listing() {
     reRender(null);
     history(-1);
   }
+
+
   return (
     <>
       {selectedSection && <button onClick={back}>Back</button>}
 
       {Object.entries(MovieListing).map(([list, movies]) => (
-        <section key={list.id} className="Listing">
+        <section key={list.id} id={list.id} className="Listing">
           <div className="title-button">
           {(selectedSection === null || selectedSection === list) && (
             <h2>{list}</h2>

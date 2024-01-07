@@ -5,6 +5,7 @@ import MovieDetails from "../Movie/moviedetails";
 import { MovieContext } from "../Helper/context";
 import { useState } from "react";
 import Search from '../search/search';
+import About from '../about/about';
 
 function Main() {
   const [context, setContext] = useState(null);

@@ -12,11 +12,11 @@ function Search() {
       setSearchTerm(e.target.value);
    };
 
-   console.log(searchTerm);
+   //console.log(searchTerm);
    async function sendRequest(e) {
       e.preventDefault();
       const searchData = await api.apiSearch(searchTerm);
-      console.log(searchData);
+      //console.log(searchData);
       setSearchTermResults(searchData)
 
    }

@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MovieDetails from "../Components/Movie/moviedetails.js";
 import About from "../Components/about/about.js";
 import Favourites from "../Components/favourites/favourites.js";
+import Footer from "../Components/Footer/Footer.js";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/moviedetails/:id" element={<MovieDetails />}></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 }
