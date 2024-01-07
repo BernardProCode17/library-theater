@@ -1,0 +1,5 @@
+.search-form {
+   background-color: bisque;
+   display: flex;
+   column-gap: 0.1875rem;
+}
