@@ -1,8 +1,8 @@
-function Favourites(){
+function Favourites() {
 
 
 
-   return(
+   return (
       <main>
          <h1>Favourites</h1>
 
