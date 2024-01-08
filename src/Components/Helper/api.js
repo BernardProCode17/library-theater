@@ -26,19 +26,9 @@ const api = {
   },
 
   apiSearch: async function (searchterm) {
-
-    try {
-      const response = await fetch(`${this.apiURL}${this.apiSearchURL}?api_key=${this.apiKey}&query=${searchterm}`);
-      if(!response.ok){
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      console.log(data);
-      return data.results || [];
-    } catch (error){
-      console.error('Error Fetching data:', error);
-      return [];
-    }
+    const response = await fetch(`${this.apiURL}${this.apiSearchURL}?api_key=${this.apiKey}&query=${searchterm}`);
+    const data = await response.json();
+    return data;
   }
 }
 export default api;
