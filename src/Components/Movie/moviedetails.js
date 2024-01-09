@@ -1,16 +1,17 @@
-import { useContext } from "react";
+import { useEffect } from "react";
 import api from "../Helper/api";
-import { MovieContext } from "../Helper/context";
 
 function MovieDetails() {
   
 // refetch the movies to get details information about the movie. 
-
+useEffect ( ()=> {
+const fetchMovie = api.getMovie(1);
+console.log(fetchMovie);
+},[])
 
   return (
     <section>
-      {/* <h1>{}</h1> */}
-      {/* <img src={} alt={}/> */}
+   
     </section>
 
 

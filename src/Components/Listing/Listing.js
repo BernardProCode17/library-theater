@@ -12,7 +12,7 @@ function Listing() {
   const [reRendersts, setReRendersts] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
   const [displayCount, setDisplaycount] = useState(6)
-  const { setContext } = useContext(MovieContext);
+ 
   const history = useNavigate();
 
   useEffect(() => {
