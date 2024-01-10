@@ -1,6 +1,5 @@
-import { useContext } from "react";
+import { useEffect } from "react";
 import api from "../Helper/api";
-import { MovieContext } from "../Helper/context";
 import { useParams } from "react-router-dom";
 
 function MovieDetails() {
@@ -12,11 +11,14 @@ const {id} = useParams();
 
 
 
+useEffect ( ()=> {
+const fetchMovie = api.getMovie(1);
+console.log(fetchMovie);
+},[])
 
   return (
     <section>
-      {/* <h1>{}</h1> */}
-      {/* <img src={} alt={}/> */}
+   
     </section>
 
 
