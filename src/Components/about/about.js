@@ -6,7 +6,7 @@ function About() {
 
 
    return (
-      <main>
+      <main id='about'>
          <h1>About</h1>
 
          <section>

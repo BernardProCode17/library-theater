@@ -10,6 +10,12 @@ const api = {
     "Upcoming": "/movie/upcoming?api_key=0aa563555938527c74fc37fad25578db",
     "Top Rated": "/movie/top_rated?api_key=0aa563555938527c74fc37fad25578db",
   },
+
+  getList: async function (list) {
+    const response = await fetch(`${this.apiURL}${this.apiListing[list]}`);
+    console.log(response)
+    return await response.json();
+  },
   getMovie: async function (id) {
     const response = await fetch(`/api/movies/${id}?0aa563555938527c74fc37fad25578db`);
     return await response.json();

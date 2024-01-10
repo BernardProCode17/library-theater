@@ -8,14 +8,17 @@ import Search from '../search/search';
 import About from '../about/about';
 
 function Main() {
+
+
+
+
+
   const [context, setContext] = useState(null);
   return (
     <main className="Main">
       <MovieContext.Provider value={{ context, setContext }}>
         <Routes>
           <Route path="*" element={<Listing />}></Route>
-          <Route path='/search' element={<Search />}></Route>
-          <Route path="/movie/:id" element={<MovieDetails />}></Route>
         </Routes>
       </MovieContext.Provider>
     </main>
