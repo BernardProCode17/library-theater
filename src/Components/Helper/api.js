@@ -6,9 +6,9 @@ const api = {
   apiSearchURL: "/search/movie",
   apiListing: {
     "Popular": "/movie/popular?api_key=0aa563555938527c74fc37fad25578db",
-    "Now Playing": "/movie/now_playing?api_key=0aa563555938527c74fc37fad25578db",
+    "Now_Playing": "/movie/now_playing?api_key=0aa563555938527c74fc37fad25578db",
     "Upcoming": "/movie/upcoming?api_key=0aa563555938527c74fc37fad25578db",
-    "Top Rated": "/movie/top_rated?api_key=0aa563555938527c74fc37fad25578db",
+    "Top_Rated": "/movie/top_rated?api_key=0aa563555938527c74fc37fad25578db",
   },
 
   getList: async function (list) {
@@ -23,6 +23,11 @@ const api = {
 
   apiHeaderVideo: async function () {
     const response = await fetch(`${this.apiURL}${this.apiListing['Popular']}`);
+    return await response.json();
+  },
+
+  apiMovieVideo: async function (id){
+    const response = await fetch(`${this.apiURL}/movie/${id}/videos?api_key=${api.apiKey}`);
     return await response.json();
   },
 

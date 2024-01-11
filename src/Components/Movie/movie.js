@@ -3,8 +3,7 @@ import api from "../Helper/api";
 import { Link } from "react-router-dom";
 
 function Movie({ movie }) {
-  console.log(movie)
-  debugger;
+  
   const { title, overview, poster_path, release_date, popularity } = movie || {};
 
   return (

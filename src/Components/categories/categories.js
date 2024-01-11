@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import api from "../Helper/api";
 import Movie from "../Movie/movie";
+import './categories.css';
 
 
 function Categories() {
@@ -18,9 +19,10 @@ function Categories() {
 
    console.log(displayList)
    return (
-      <main>
-         {displayList.map((movielist, index) => {
-            return <Movie key={index} movies={movielist} />;
+      <main className="categories">
+         
+         {displayList.map((movie, index) => {
+            return <Movie key={index} movie={movie} />;
          })}
       </main>
    )
