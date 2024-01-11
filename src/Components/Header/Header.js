@@ -8,6 +8,7 @@ import Search from "../search/search";
 function Header() {
   const [headerVideo, setHeaderVideo] = useState(null);
   const { id } = useParams();
+
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
       // Fetch a list of movies
@@ -20,7 +21,7 @@ function Header() {
       //Fetch the videos for the selected movie
       const videoResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api.apiKey}`);
       const videoData = await videoResponse.json();
-
+      // console.log(videoData)
       // Find a trailer among the videos
       const trailer = videoData.results.find((video) => video.type === "Trailer");
 
@@ -35,28 +36,13 @@ function Header() {
   }, []);
 
   useEffect(() => {
-
-    api.apiMovieVideo(id)
-      .then( video =>{
-        setHeaderVideo(video)
-      })
-
-
-
-    //Fetch the videos for the selected movie
-    const videoResponse = fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api.apiKey}`);
-    console.log(videoResponse)
-    const videoData = videoResponse.json();
-
-    // Find a trailer among the videos
-    const trailer = videoData.results.find((video) => video.type === "Trailer");
-
-    if (trailer) {
-      setHeaderVideo(trailer.key); // Set the key of the trailer as the header video
-    } else {
-      console.log("Trailer not found");
+    async function movieDetailsTrailer(id) {
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api.apiKey}`)
+      console.log(response)
     }
-  })
+
+    movieDetailsTrailer(id)
+  }, [id])
 
   //Mute video without the controls option
   //skip to next video when video finish
@@ -75,7 +61,8 @@ function Header() {
           <Search />
         </div>
       </nav>
-      {headerVideo && (
+
+      {/* {headerVideo && (
         <iframe
           title={headerVideo.title}
           width='100%'
@@ -84,7 +71,8 @@ function Header() {
           frameborder="0"
           allow='gyroscope; loop'
         ></iframe>
-      )}
+      )} */}
+
     </header>
   );
 }

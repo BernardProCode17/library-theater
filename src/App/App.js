@@ -1,6 +1,7 @@
 import "./App.css";
 import './normalize_reset.css'
 
+import { useState } from "react";
 import Main from "../Components/Main/Main.js";
 import Header from "../Components/Header/Header.js";
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
@@ -15,6 +16,7 @@ import Categories from "../Components/categories/categories.js";
 
 
 function App() {
+
   return (
     <Router>
       <Header />

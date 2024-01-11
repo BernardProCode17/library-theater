@@ -15,7 +15,7 @@ function Main() {
   const [context, setContext] = useState(null);
   return (
     <main className="Main">
-      
+      <MovieDetails />
       <MovieContext.Provider value={{ context, setContext }}>
         <Routes>
           <Route path="*" element={<Listing />}></Route>

@@ -7,7 +7,7 @@ function Search() {
 
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState('');
-   console.log(api.apiSearch('books'))
+   console.log(api.apiSearch('books.value'))
 
    const searchingTerms = (e) => {
       setSearchTerm(e.target.value);
@@ -16,10 +16,11 @@ function Search() {
 
    async function sendRequest(e) {
       e.preventDefault();
-      
+
       //search api fetch works, not geting the the search terms
       const searchData = await api.apiSearch(searchTerm);
-      setSearchTermResults(searchData)
+
+      // setSearchTermResults(searchData)
    }
 
 
