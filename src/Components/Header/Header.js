@@ -1,13 +1,13 @@
 import "./Header.css";
 import logo from "../../logo images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import Search from "../search/search";
 
 function Header() {
   const [headerVideo, setHeaderVideo] = useState(null);
-
+  const { id } = useParams();
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
       // Fetch a list of movies
@@ -44,8 +44,9 @@ function Header() {
 
 
     //Fetch the videos for the selected movie
-    const videoResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api.apiKey}`);
-    const videoData = await videoResponse.json();
+    const videoResponse = fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api.apiKey}`);
+    console.log(videoResponse)
+    const videoData = videoResponse.json();
 
     // Find a trailer among the videos
     const trailer = videoData.results.find((video) => video.type === "Trailer");
