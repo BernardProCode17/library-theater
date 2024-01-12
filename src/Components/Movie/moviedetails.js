@@ -10,18 +10,20 @@ function MovieDetails() {
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
-        console.log(data)
+        // console.log(data)
         setDetails(data);
       })
   }, [id])
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
 
+  /*
   useEffect( () => {
     api.apiMovieVideo(id)
     .then(data =>{
-
+      
     })
   } ,[])
+  */
 
 
   return (

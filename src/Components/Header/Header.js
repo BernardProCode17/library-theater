@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import Search from "../search/search";
 
-function Header() {
+function Header({ReceiveResults}) {
   const [headerVideo, setHeaderVideo] = useState(null);
   const { id } = useParams();
 
@@ -38,7 +38,7 @@ function Header() {
   useEffect(() => {
     async function movieDetailsTrailer(id) {
       const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api.apiKey}`)
-      console.log(response)
+      //console.log(response)
     }
 
     movieDetailsTrailer(id)
@@ -58,7 +58,7 @@ function Header() {
             <li><Link to="/about">About</Link></li>
             <li><Link to="/favourites">Favourites</Link></li>
           </ul>
-          <Search />
+          <Search ReceiveResults={ReceiveResults} />
         </div>
       </nav>
 

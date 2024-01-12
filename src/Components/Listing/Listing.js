@@ -4,7 +4,7 @@ import axios from "axios";
 import api from "../Helper/api";
 import Movie from "../Movie/movie";
 import { MovieContext } from "../Helper/context";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Listing() {
   // need a function to display the listins in a section tag with the movie articles
@@ -36,7 +36,7 @@ function Listing() {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log(MovieListing)
+  // console.log(MovieListing)
 
   return (
     <>
