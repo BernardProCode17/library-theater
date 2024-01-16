@@ -20,11 +20,13 @@ function Search({ receiveResults }) {
    async function sendRequest(e) {
       e.preventDefault();
 
-      const searchData = await api.apiSearch(searchTerm)
-      console.log(searchData.results)
-      setSearchTermResults(searchData)
-      receiveResults(searchTermResults.results)
-      navigate('/search');
+      if (searchTerm.trim() !== '') {
+         const searchData = await api.apiSearch(searchTerm)
+         console.log(searchData.results)
+         setSearchTermResults(searchData)
+         receiveResults(searchData.results)
+         navigate('/search'); //it can only navigate to the search page if the button is clicked
+      }
    }
 
    return (
