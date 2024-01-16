@@ -3,7 +3,7 @@ import api from "../Helper/api";
 
 function SearchDisplay({ results }) {
    console.log(results)
-
+//auto scroll to the top when first loaded*****************************
    return (
       <section>
          <h2>Search Result</h2>
