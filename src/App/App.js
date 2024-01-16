@@ -11,29 +11,27 @@ import Favourites from "../Components/favourites/favourites.js";
 import Footer from "../Components/Footer/Footer.js";
 import Categories from "../Components/categories/categories.js";
 import SearchDisplay from "../Components/search/searchDisplay.js";
-// import api from "../Components/Helper/api.js";
-
-
-
 
 function App() {
 
-  const [searchresults, setSearchresults] = useState('');
+  const [searchresults, setSearchresults] = useState([]);
 
-  const ReceiveResults = (results) => {
+  const receiveResults = (results) => {
     setSearchresults(results);
   }
   console.log(searchresults)
+
   return (
     <Router>
-      <Header ReceiveResults={ReceiveResults} />
+      <Header receiveResults={receiveResults}/>
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/about" element={<About />}></Route>
+        {/* <Route path="/" element={<Listing />}></Route> */}
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/moviedetails/:id" element={<MovieDetails />}></Route>
         <Route path="/categories/:listname" element={<Categories />}></Route>
-        <Route path="/search" element={<SearchDisplay searchresults={searchresults} />}></Route>
+        <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
       </Routes>
       <Footer />
     </Router>

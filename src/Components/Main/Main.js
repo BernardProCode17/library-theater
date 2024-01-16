@@ -14,8 +14,7 @@ function Main() {
     <main className="Main">
 
         <Routes>
-          <Route path="/" element={<Listing />}></Route>
-          
+          <Route path="/" element={<Listing />}></Route>          
         </Routes>
     </main>
   );
