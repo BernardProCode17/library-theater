@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Search({ receiveResults }) {
 
-   const navigate = useNavigate
+   const navigate = useNavigate()
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState([]);
    // console.log(api.apiSearch(searchTerm.results))
@@ -24,8 +24,8 @@ function Search({ receiveResults }) {
       console.log(searchData.results)
       setSearchTermResults(searchData)
       receiveResults(searchTermResults.results)
+      navigate('/search');
    }
-   navigate('/search');
 
    return (
 
