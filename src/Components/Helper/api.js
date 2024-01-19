@@ -17,7 +17,7 @@ const api = {
     return await response.json();
   },
   getMovie: async function (id) {
-    const response = await fetch(`${this.apiURL}/movie/${id}?api_key=${this.apiKey}`);
+    const response = await fetch(`${this.apiURL}/movie/${id}?api_key=${this.apiKey}&append_to_response=videos`);
     return await response.json();
   },
 
