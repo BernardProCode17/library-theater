@@ -14,6 +14,7 @@ import SearchDisplay from "../Components/search/searchDisplay.js";
 
 function App() {
 
+  const [movieTrailer, setMovieTrailer] = useState([])
   const [searchresults, setSearchresults] = useState([]);
 
   const receiveResults = (results) => {
@@ -23,14 +24,14 @@ function App() {
 
   return (
     <Router>
-      <Header receiveResults={receiveResults}/>
+      <Header receiveResults={receiveResults} movieTrailer={movieTrailer}/>
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/about" element={<About />}></Route>
         {/* <Route path="/" element={<Listing />}></Route> */}
         <Route path="/favourites" element={<Favourites />}></Route>
-        <Route path="/moviedetails/:id" element={<MovieDetails />}></Route>
-        <Route path="/categories/:listname" element={<Categories />}></Route>
+        <Route path="/moviedetails/:id" element={<MovieDetails movieTrailer={movieTrailer} setMovieTrailer={setMovieTrailer}/>}></Route>
+        <Route path="/categories/:listname" element={<Categories  />}></Route>
         <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
       </Routes>
       <Footer />

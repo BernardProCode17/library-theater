@@ -1,9 +1,6 @@
-function videoFilter(videoArray){
-
-   videoArray.filter((trailer)=>{
-    if(trailer.site === 'YouTube' && trailer.type === 'Trailer')
-    return trailer
-   })
+function videoFilter(videoArray) {
+// console.log(videoArray)
+videoArray.filter((video) => {return video.site ===  'YouTube' & video.type === 'Trailer'})
 }
 
 export default videoFilter;

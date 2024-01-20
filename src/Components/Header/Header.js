@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import Search from "../search/search";
 
-function Header({receiveResults}) {
+function Header({receiveResults, movieTrailer}) {
   const [headerVideo, setHeaderVideo] = useState(null);
   const { id } = useParams();
-
+console.log(movieTrailer)
 
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
@@ -63,7 +63,7 @@ function Header({receiveResults}) {
         </div>
       </nav>
       
-      {/* {headerVideo && (
+      {headerVideo && (
         <iframe
           title={headerVideo.title}
           width='100%'
@@ -72,7 +72,7 @@ function Header({receiveResults}) {
           frameborder="0"
           allow='gyroscope; loop'
         ></iframe>
-      )} */}
+      )}
 
     </header>
   );
