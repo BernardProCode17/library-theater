@@ -77,8 +77,10 @@ function Header({ receiveResults, movieTrailer, movieID }) {
     }
   }
   playHeaderVideo();
+  const log = console.log();
+  log(playHeaderVideo)
 
-
+  const videoID = idCheck ? () => (trailerKey().key) : playHeaderVideo();
 
   return (
     <header className="mainHeader">
@@ -100,7 +102,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
           title={headerVideo.title}
           width='100%'
           height='100%'
-          src={`https://www.youtube.com/embed/${idCheck ? () => (trailerKey().key) : playHeaderVideo()}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1`}
           frameborder="0"
           allow='gyroscope; loop'
         ></iframe>
