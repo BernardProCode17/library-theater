@@ -77,8 +77,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
     }
   }
   playHeaderVideo();
-  const log = console.log();
-  log(playHeaderVideo)
+
 
   const videoID = idCheck ? () => (trailerKey().key) : playHeaderVideo();
 
