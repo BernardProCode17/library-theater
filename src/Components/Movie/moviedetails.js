@@ -3,17 +3,20 @@ import api from "../Helper/api";
 import { useParams } from "react-router-dom";
 import videoFilter from "../Helper/movieTrailer.js";
 
-function MovieDetails({ movieTrailer, setMovieTrailer }) {
+function MovieDetails({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})
-  // const [movieTrailer, setMovieTrailer] = useState([])
-  console.log(movieTrailer)
   const { id } = useParams();
+  // console.log(id)
+  movieIDSetter(id)
 
+
+
+  // console.log(id)
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
         setDetails(data);
-        setMovieTrailer(data.videos.results)
+        setMovieTrailer(videoFilter(data.videos.results))
       })
     return () => {
       setMovieTrailer([])
@@ -21,14 +24,6 @@ function MovieDetails({ movieTrailer, setMovieTrailer }) {
   }, [id])
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
 
-  /*
-  useEffect( () => {
-    api.apiMovieVideo(id)
-    .then(data =>{
-      
-    })
-  } ,[])
-  */
 
 
   return (

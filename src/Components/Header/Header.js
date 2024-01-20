@@ -1,15 +1,21 @@
 import "./Header.css";
 import logo from "../../logo images/logo.png";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import Search from "../search/search";
 
-function Header({receiveResults, movieTrailer}) {
-  const [headerVideo, setHeaderVideo] = useState(null);
-  const { id } = useParams();
-console.log(movieTrailer)
 
+
+function Header({ receiveResults, movieTrailer, movieID }) {
+  const [headerVideo, setHeaderVideo] = useState(null);
+  // const { id } = useParams();
+
+  console.log(movieID)
+
+
+  const location = useLocation();
+ console.log(location.pathname)
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
       // Fetch a list of movies
@@ -27,7 +33,7 @@ console.log(movieTrailer)
       const trailer = videoData.results.find((video) => video.type === "Trailer");
 
       if (trailer) {
-        setHeaderVideo(trailer.key); // Set the key of the trailer as the header video
+        setHeaderVideo(trailer.key);
       } else {
         console.log("Trailer not found");
       }
@@ -36,17 +42,13 @@ console.log(movieTrailer)
     fetchRandomMovieTrailer();
   }, []);
 
-  useEffect(() => {
-    async function movieDetailsTrailer(id) {
-      const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api.apiKey}`)
-      //console.log(response)
-    }
 
-    movieDetailsTrailer(id)
-  }, [id])
 
+
+  
   //Mute video without the controls option
   //skip to next video when video finish
+  console.log(movieTrailer)
   return (
     <header className="mainHeader">
       <nav className="Nav">
@@ -59,16 +61,15 @@ console.log(movieTrailer)
             <li><Link to="/about">About</Link></li>
             <li><Link to="/favourites">Favourites</Link></li>
           </ul>
-          <Search receiveResults={receiveResults}/>
+          <Search receiveResults={receiveResults} />
         </div>
       </nav>
-      
       {headerVideo && (
         <iframe
           title={headerVideo.title}
           width='100%'
           height='100%'
-          src={`https://www.youtube.com/embed/${headerVideo}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${location.pathname === movieID ? movieTrailer.key : headerVideo}?autoplay=1&mute=1`}
           frameborder="0"
           allow='gyroscope; loop'
         ></iframe>

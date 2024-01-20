@@ -1,6 +1,6 @@
 function videoFilter(videoArray) {
-// console.log(videoArray)
-videoArray.filter((video) => {return video.site ===  'YouTube' & video.type === 'Trailer'})
+
+return videoArray.filter((video) => video.type === 'Trailer')
 }
 
-export default videoFilter;
+export default videoFilter
