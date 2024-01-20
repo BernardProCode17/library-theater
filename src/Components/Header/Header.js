@@ -1,17 +1,15 @@
 import "./Header.css";
 import logo from "../../logo images/logo.png";
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../Helper/api";
 import Search from "../search/search";
-import Movie from "../Movie/movie";
-
 
 
 function Header({ receiveResults, movieTrailer, movieID }) {
   const [headerVideo, setHeaderVideo] = useState(null);
   const location = useLocation();
- 
+  console.log(headerVideo)
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
       // Fetch a list of movies
@@ -42,35 +40,49 @@ function Header({ receiveResults, movieTrailer, movieID }) {
   //Mute video without the controls option
   //skip to next video when video finish
 
-  console.log(movieTrailer)
-  console.log(movieID)
-  console.log(location.pathname)
-  console.log(location)
+  // console.log(movieTrailer)
+  // console.log(movieID)
+  // console.log(location.pathname)
+  // console.log(location)
 
-        
-    
-const trailerKey = ()=>{
-  return movieTrailer.find((element)=> element.key)
 
-}
 
-function idCheck(){
-  let locationSplit = location.pathname.split('/').pop();
-  let compare; 
-  if(locationSplit === movieID){
-   return compare = true;
-  }else{
-    return compare = false;
-  }
+  const trailerKey = () => {
+    return movieTrailer.find((element) => element.key)
+
   }
 
+  function idCheck() {
+    let locationSplit = location.pathname.split('/').pop();
+    let compare;
 
+
+    if (locationSplit === movieID) {
+      return compare = true;
+    } else {
+      return compare = false;
+    }
+  }
+
+  console.log(idCheck())
+
+
+
+  function playHeaderVideo() {
+    if (location.pathname === '/') {
+      console.log('Homepage')
+      return headerVideo;
+    } else {
+      console.log('moviepage')
+    }
+  }
+  playHeaderVideo();
 
 
 
   return (
     <header className="mainHeader">
-      {/* <nav className="Nav">
+      <nav className="Nav">
         <Link to="/">
           <img src={logo} alt="Logo of library Theater company" />
         </Link>
@@ -82,13 +94,13 @@ function idCheck(){
           </ul>
           <Search receiveResults={receiveResults} />
         </div>
-      </nav> */}
+      </nav>
       {headerVideo && (
         <iframe
           title={headerVideo.title}
           width='100%'
           height='100%'
-          src={`https://www.youtube.com/embed/${idCheck ? trailerKey().key : headerVideo}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${idCheck ? () => (trailerKey().key) : playHeaderVideo()}?autoplay=1&mute=1`}
           frameborder="0"
           allow='gyroscope; loop'
         ></iframe>

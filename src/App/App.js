@@ -17,7 +17,7 @@ function App() {
   const [movieTrailer, setMovieTrailer] = useState([])
   const [searchresults, setSearchresults] = useState([]);
   const [movieID, setMovieID] = useState('')
-  console.log(movieID)
+  
   
   function movieIDSetter(paramID) {
     return setMovieID(paramID)
@@ -25,7 +25,6 @@ function App() {
   const receiveResults = (results) => {
     setSearchresults(results);
   }
-  // console.log(searchresults)
 
   return (
     <Router>
@@ -33,7 +32,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/about" element={<About />}></Route>
-        {/* <Route path="/" element={<Listing />}></Route> */}
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/moviedetails/:id" element={<MovieDetails movieTrailer={movieTrailer} setMovieTrailer={setMovieTrailer} movieIDSetter={movieIDSetter} />}></Route>
         <Route path="/categories/:listname" element={<Categories />}></Route>
