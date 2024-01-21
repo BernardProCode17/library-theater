@@ -1,4 +1,3 @@
-import "./App.css";
 import './normalize_reset.css'
 
 import { useState } from "react";

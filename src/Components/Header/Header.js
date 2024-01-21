@@ -1,9 +1,9 @@
 import "./Header.css";
-import logo from "../../logo images/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../Helper/api";
-import Search from "../search/search";
+import DeskTopNav from "../Desktop Nav/Desktop_Nav";
+import MobileNav from "../Mobile Nav/Mobile_Nav";
 
 
 function Header({ receiveResults, movieTrailer, movieID }) {
@@ -103,20 +103,10 @@ function Header({ receiveResults, movieTrailer, movieID }) {
 
   return (
     <header className="mainHeader">
-      <nav className="Nav">
-        <Link to="/">
-          <img src={logo} alt="Logo of library Theater company" />
-        </Link>
-        <div className="links-search">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/favourites">Favourites</Link></li>
-          </ul>
-          <Search receiveResults={receiveResults} />
-          <button type="button" onClick={toggleMute}>{videoMute ? 'Unmute' : 'Mute'}</button>
-        </div>
-      </nav>
+      {/* <DeskTopNav receiveResults={receiveResults} /> */}
+      <MobileNav receiveResults={receiveResults} />
+      <button type="button" onClick={toggleMute}>{videoMute ? 'Unmute' : 'Mute'}</button>
+
       {headerVideo && (
         <iframe
           title={headerVideo.title}
