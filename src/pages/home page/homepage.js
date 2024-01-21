@@ -1,12 +1,11 @@
 import "./Listing.css";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import api from "../Helper/api";
-import Movie from "../Movie/movie";
-import { MovieContext } from "../Helper/context";
+import api from "../../Components/Helper/api";
+import MovieDisplay from "../../Components/Movie/moviedisplay";
 import { Link } from "react-router-dom";
 
-function Listing() {
+function HomePage() {
   // need a function to display the listins in a section tag with the movie articles
   const [MovieListing, setMovieListing] = useState({});
   const [selectedSection, setSelectedSection] = useState(null);
@@ -59,7 +58,7 @@ function Listing() {
 
             <div className="articles">
           {(selectedSection === null || selectedSection === list) &&
-            movies.slice(0, displayCount).map((movie) => <Movie key={movie.id} movie={movie} />)}
+            movies.slice(0, displayCount).map((movie) => <MovieDisplay key={movie.id} movie={movie} />)}
             </div>
         
         </section>
@@ -67,4 +66,4 @@ function Listing() {
     </>
   );
 }
-export default Listing;
+export default HomePage;

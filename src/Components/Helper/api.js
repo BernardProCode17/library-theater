@@ -1,6 +1,6 @@
 const api = {
   apiURL: "https://api.themoviedb.org/3",
-  apiKey: "0aa563555938527c74fc37fad25578db",
+  apiKey: process.env.REACT_APP_API_KEY,
   apiImage: "https://image.tmdb.org/t/p/w500/",
   apiVideo: "/movie/{movie_id}/videos",
   apiSearchURL: "/search/movie",

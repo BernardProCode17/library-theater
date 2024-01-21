@@ -1,7 +1,5 @@
 function Favourites() {
 
-
-
    return (
       <main>
          <h1>Favourites</h1>

@@ -3,7 +3,7 @@ import api from "../Helper/api";
 import { Link } from "react-router-dom";
 import Favourites from "../Helper/favourites";
 
-function Movie({ movie }) {
+function MovieDisplay({ movie }) {
 
   const { title, overview, poster_path, release_date, popularity, id } = movie || {};
 
@@ -22,7 +22,7 @@ function Movie({ movie }) {
           <p>genre</p>
         </div>
         <Favourites id={movie.id} />
-        <Link to={`/moviedetails/${movie.id}`}>
+        <Link to={`/movie/${id}`}>
           More Info
         </Link>
 
@@ -32,4 +32,4 @@ function Movie({ movie }) {
   );
 }
 
-export default Movie;
+export default MovieDisplay;

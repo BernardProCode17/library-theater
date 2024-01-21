@@ -1,20 +1,28 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './svg_styles.css'
 
 function Favourites({ id }) {
-   const [StorageManagement, setStoragemanagement] = useState(false)
+console.log(id)
+   const [StorageManagement, setStoragemanagement] = useState(false);
+   const [arrayStorage, setArrayStorage] = useState([])
    const buttonRef = useRef();
 
+
+   useEffect(() => {
+      setArrayStorage(JSON.parse(localStorage.getItem('id')) || [])
+   }, [])
+
+   useEffect(() => {
+      localStorage.setItem('id', JSON.stringify(arrayStorage));
+   }, [arrayStorage])
+
    function storageMgn() {
-      if (StorageManagement) {
-         addToLocalStorage(id)
-         setStoragemanagement(false)
+      if (arrayStorage.includes(id)) {
+         setArrayStorage(array => array.filter(movieID => movieID !== id))
       } else {
-         FromLocalStorage(id)
-         setStoragemanagement(true)
+         setArrayStorage(array => [...array, id])
       }
    }
-
    const svgIcons = {
       favourites: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='add remove'>
          <path d="M22.813 7.338a6.736 6.736 0 0 0-3.8-4.49c-3.206-1.471-6 .878-7.016 1.9-1.013-1.025-3.813-3.374-7.016-1.9a6.736 6.736 0 0 0-3.8 4.49 5.818 5.818 0 0 0 1 4.98c1.708 2.215 9.156 8.891 9.472 9.174a.514.514 0 0 0 .688 0c.316-.283 7.764-6.959 9.472-9.174a5.815 5.815 0 0 0 1-4.98zM21 11.689c-1.448 1.878-7.488 7.362-9 8.726-1.512-1.364-7.552-6.848-9-8.726a4.8 4.8 0 0 1-.812-4.1 5.711 5.711 0 0 1 3.226-3.8c2.229-1.027 4.731.311 6.186 2.05a.516.516 0 0 0 .4.188.516.516 0 0 0 .4-.188c.029-.035 2.958-3.536 6.188-2.055a5.714 5.714 0 0 1 3.226 3.8A4.8 4.8 0 0 1 21 11.689z" />
@@ -28,19 +36,8 @@ function Favourites({ id }) {
       </svg>
    }
 
-   // console.log(id.id)
 
-   function addToLocalStorage(id) {
-      let movies = [id];
-
-      localStorage.setItem('addFavMovie', JSON.stringify(movies));
-   }
-
-
-   function FromLocalStorage() {
-      localStorage.removeItem('addFavMovie')
-
-   }
+   console.log(arrayStorage)
 
    return (
       <button ref={buttonRef} style={{ width: '2.5rem' }} onClick={storageMgn}>

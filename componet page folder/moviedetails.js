@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import api from "../Helper/api";
+import api from "../src/Components/Helper/api.js";
 import { useParams } from "react-router-dom";
-import videoFilter from "../Helper/movieTrailer.js";
+import videoFilter from "../src/Components/Helper/movieTrailer.js";
 
 function MovieDetails({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})

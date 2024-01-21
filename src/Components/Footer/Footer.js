@@ -16,7 +16,7 @@ function Footer(){
 
                <li><Link to="/favourites">Favourites</Link></li>
 
-               <li><a href='#popular'>Popular</a></li>
+               <li><Link to='/categories'>Popular</Link></li>
 
                <li><a href='#now-playing'>Now Playing</a></li>
 
