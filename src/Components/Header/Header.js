@@ -9,6 +9,7 @@ import Search from "../search/search";
 function Header({ receiveResults, movieTrailer, movieID }) {
   const [headerVideo, setHeaderVideo] = useState(null);
   const [videoID, setVideoID] = useState(headerVideo)
+  const [videoMute, setVideoMute] = useState(true)
   const location = useLocation();
   // const videoID = idCheck() ? trailerKey() : headerVideo;
 
@@ -38,11 +39,15 @@ function Header({ receiveResults, movieTrailer, movieID }) {
     fetchRandomMovieTrailer();
   }, []);
 
+  const toggleMute = (e) => {
+    e.preventDefault();
+    setVideoMute(!videoMute)
+  }
 
   //Mute video without the controls option
   //skip to next video when video finish
 
-// Tries attemp one
+  // Tries attemp one
   const trailerKey = () => {
     const findTrailer = movieTrailer.find((element) => element.key)
     return findTrailer ? findTrailer.key : undefined;
@@ -58,7 +63,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
       return compare = false;
     }
   }
-//tries attempt two 
+  //tries attempt two 
   useEffect(() => {
 
     if (location.pathname === '/') {
@@ -70,7 +75,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
       }
     }
   }, [location.pathname, headerVideo, movieTrailer]);
-//Tries Attemp three
+  //Tries Attemp three
   useEffect(() => {
 
     if (location.pathname === '/') {
@@ -109,6 +114,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
             <li><Link to="/favourites">Favourites</Link></li>
           </ul>
           <Search receiveResults={receiveResults} />
+          <button type="button" onClick={toggleMute}>{videoMute ? 'Unmute' : 'Mute'}</button>
         </div>
       </nav>
       {headerVideo && (
@@ -116,9 +122,8 @@ function Header({ receiveResults, movieTrailer, movieID }) {
           title={headerVideo.title}
           width='100%'
           height='100%'
-          src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=1`}
+          src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1}`}
           frameborder="0"
-          allow='gyroscope; loop'
         ></iframe>
       )}
 
