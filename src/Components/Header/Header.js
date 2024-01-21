@@ -8,12 +8,14 @@ import Search from "../search/search";
 
 function Header({ receiveResults, movieTrailer, movieID }) {
   const [headerVideo, setHeaderVideo] = useState(null);
+  const [videoID, setVideoID] = useState(headerVideo)
   const location = useLocation();
-  console.log(headerVideo)
+  // const videoID = idCheck() ? trailerKey() : headerVideo;
+
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
       // Fetch a list of movies
-      const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api.apiKey}`);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api.apiKey}`);
       const data = await response.json();
 
       // Select a random movie
@@ -40,22 +42,15 @@ function Header({ receiveResults, movieTrailer, movieID }) {
   //Mute video without the controls option
   //skip to next video when video finish
 
-  // console.log(movieTrailer)
-  // console.log(movieID)
-  // console.log(location.pathname)
-  // console.log(location)
-
-
-
+// Tries attemp one
   const trailerKey = () => {
-    return movieTrailer.find((element) => element.key)
-
+    const findTrailer = movieTrailer.find((element) => element.key)
+    return findTrailer ? findTrailer.key : undefined;
   }
 
   function idCheck() {
     let locationSplit = location.pathname.split('/').pop();
-    let compare;
-
+    let compare = null;
 
     if (locationSplit === movieID) {
       return compare = true;
@@ -63,23 +58,43 @@ function Header({ receiveResults, movieTrailer, movieID }) {
       return compare = false;
     }
   }
+//tries attempt two 
+  useEffect(() => {
 
-  console.log(idCheck())
-
-
-
-  function playHeaderVideo() {
     if (location.pathname === '/') {
-      console.log('Homepage')
-      return headerVideo;
+      setVideoID(headerVideo);
+    } else if (movieTrailer && movieTrailer.length > 0) {
+      const trailer = movieTrailer.find((video) => video.type === 'trailer');
+      if (trailer) {
+        setVideoID(trailer.key)
+      }
+    }
+  }, [location.pathname, headerVideo, movieTrailer]);
+//Tries Attemp three
+  useEffect(() => {
+
+    if (location.pathname === '/') {
+      setVideoID(headerVideo);
     } else {
-      console.log('moviepage')
+      fetchMovieTrailer();
+    }
+  }, [location.pathname, headerVideo])
+
+
+  const fetchMovieTrailer = async () => {
+    const locationID = location.pathname.split('/')[2];
+    // console.log(locationID)
+    const videoFetch = await fetch(`https://api.themoviedb.org/3/movie/${locationID}/videos?api_key=${api.apiKey}`)
+    const videoResponse = await videoFetch.json();
+    const trailer = videoResponse.results.find((video) => video.type === 'trailer');
+
+    if (trailer) {
+      setVideoID(trailer.key);
+    } else {
+      // fix this the handle error when video not found.
+      console.log('Trailer Not Found')
     }
   }
-  playHeaderVideo();
-
-
-  const videoID = idCheck ? () => (trailerKey().key) : playHeaderVideo();
 
   return (
     <header className="mainHeader">
