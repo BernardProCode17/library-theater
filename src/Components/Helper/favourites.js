@@ -16,7 +16,7 @@ function Favourites({ id }) {
       // console.log('favorite button is writing to localstorage')
       // App requires a shared context, otherwise each button
       // behaves like an independent 'island' to itself
-      // and all the buttons are fighting over the same
+      // and all the buttons are fighting over ~the same
       // memory in localStorage
       localStorage.setItem('id', JSON.stringify(arrayStorage));
    }, [arrayStorage])
