@@ -19,10 +19,18 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
       setMovieTrailer([])
     }
   }, [id])
+
+  // this page is already requesting trailer data, so there is no new data fetching
+  // required
+  // the trailer data, could be removed from App.js and brought down in to 
+  // this component, there is no longer a need to feed that state up and into
+  // the <Header/>
   
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
-
+// you may have to tinker here, but we would find the right spot for the <Player/>
+// component to be rendered here, passing in the 
   return (
+
 
     <main>
       <section>

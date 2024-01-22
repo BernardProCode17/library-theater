@@ -7,6 +7,11 @@ import MobileNav from "../Mobile Nav/Mobile_Nav";
 
 
 function Header({ receiveResults, movieTrailer, movieID }) {
+
+  // some of the logic/functions can be refactored/repurposed
+  // into a reusable <Player/> component
+  // from there, any unused functions/logic can be removed
+
   const [headerVideo, setHeaderVideo] = useState(null);
   const [videoID, setVideoID] = useState(headerVideo)
   const [videoMute, setVideoMute] = useState(true)
@@ -123,7 +128,8 @@ function Header({ receiveResults, movieTrailer, movieID }) {
 
       {headerVideo && (
         <>
-
+        {/* this code here is a great candidate to be lifted into a 
+        dedicated <Player/> component */}
           <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
           <div className="videoPlayer">
             <iframe

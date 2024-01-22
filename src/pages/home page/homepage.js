@@ -32,10 +32,13 @@ function HomePage() {
 
     listingApi();
     window.scrollTo(0, 0);
+    // we need to add a fetch here... to grab a random movie trailer
+    // i think you already have code to do that, it just has to be moved into this useEffect
   }, []);
 
   return (
     <>
+      {/* here we would render a new <Player trailerData={trailerData}/> component */}
 
 
       {Object.entries(MovieListing).map(([list, movies, index]) => {
