@@ -103,11 +103,11 @@ function Header({ receiveResults, movieTrailer, movieID }) {
 
   return (
     <header className="mainHeader">
-      {/* <DeskTopNav receiveResults={receiveResults} /> */}
       <MobileNav receiveResults={receiveResults} />
+      {/* <DeskTopNav receiveResults={receiveResults} /> */}
       <button type="button" onClick={toggleMute}>{videoMute ? 'Unmute' : 'Mute'}</button>
 
-      {headerVideo && (
+      {/* {headerVideo && (
         <iframe
           title={headerVideo.title}
           width='100%'
@@ -115,7 +115,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
           src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1}`}
           frameborder="0"
         ></iframe>
-      )}
+      )} */}
 
     </header>
   );

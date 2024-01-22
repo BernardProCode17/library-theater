@@ -1,0 +1,106 @@
+/* Mobile nav Style*/
+
+/* logo and menu section*/
+.logo-menu {
+   display: flex;
+   justify-content: space-between;
+   padding: 0.3rem;
+   width: 100%;
+}
+
+/*Menu SVG*/
+
+.menu_svg {
+   background-color: transparent;
+   margin: 0.3rem;
+   padding: 0.3rem;
+   border-radius: 3px;
+   width: 13%;
+   border: none;
+   position: relative;
+   right: 0;
+   top: 0;
+
+   & svg {
+      & path {
+         padding: 1rem;
+         fill: #FFF;
+      }
+   }
+}
+
+.menu_svg svg:active {
+   margin: 1%;
+   /* border: 1px solid blue; */
+   transition: transform 50ms;
+   transform: scale(1.3, 1.3);
+   /* outline: solid 0.0813rem lightblue; */
+   border-radius: 0.1875rem;
+
+   & path {
+      fill: blue;
+      border-radius: 5px;
+   }
+}
+
+/* logo*/
+.mobile-logo {
+   width: 8.125rem;
+}
+
+.mobile-logo:active {
+   transition: transform 30ms;
+   transform: scale(1.03);
+}
+
+/* Nav Styling*/
+.mobileNav {
+   display: flex;
+   /* background-color: beige; */
+   width: 50%;
+   height: 20rem;
+   margin-left: 50%;
+   position: absolute;
+   top: 10%;
+   display: none;
+
+
+   & .links-search {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 0rem auto;
+      width: 100%;
+      background-color: #FFF;
+      border-radius: 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+   }
+
+   & ul{
+      list-style: none;
+   }
+   & li{
+      margin: 1.5rem auto;
+   }
+   & a{
+      text-decoration: none;
+      font-size: 1.5rem;
+      padding: 0.3rem;
+   }
+
+   & a:visited{
+      color: blue;
+   }
+   & a:active{
+     color: lightblue; 
+     outline: solid 2px blue;
+     border-radius: 5px;
+   }
+
+}
+
+.mobileNavShow{
+   display: block;
+}

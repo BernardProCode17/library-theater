@@ -1,5 +1,4 @@
-import './normalize_reset.css'
-
+import './normalize_reset.css';
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header.js";
@@ -8,7 +7,7 @@ import Movie from "../pages/movie/movie.js";
 import About from "../pages/about/about.js";
 import Favourites from "../pages/favourites/favourites.js";
 import Categories from "../pages/categories/categories.js";
-import SearchDisplay from "../Components/search/searchDisplay.js";
+import SearchDisplay from "../pages/search/search.js";
 import Footer from "../Components/Footer/Footer.js";
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
   const receiveResults = (results) => {
     setSearchresults(results);
   }
-
+console.log(receiveResults)
   return (
     <Router>
       <Header receiveResults={receiveResults} movieTrailer={movieTrailer} movieID={movieID} />

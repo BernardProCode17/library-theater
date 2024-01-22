@@ -1,5 +1,36 @@
+/* Search Form*/
 .search-form {
-   background-color: bisque;
+   width: 100%;
+   height: 10%;
+   margin: 0.5rem;
    display: flex;
-   column-gap: 0.1875rem;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 0.3rem;
+
+   & .search-input {
+      width: 90%;
+      border: none;
+      margin: 0rem auto;
+      border-bottom: 1.5px solid blue;
+   }
+
+   & .search-input:focus {
+      outline: none;
+      caret-color: blue;
+   }
+
+   & .search-button {
+      border: none;
+      border-bottom: 1.5px solid blue;
+      background-color: transparent;
+   }
+
+   & .search-button:active {
+      background-color: rgb(30, 30, 237);
+      color: #FFF;
+      border-radius: 3px;
+
+   }
 }
