@@ -4,13 +4,24 @@
    height: auto;
    padding-bottom: 56.25%;
    position: relative;
+   display: flex;
+   flex-direction: column;
 
    & .videoPlayer {
-      margin: 0rem auto;
-      object-fit: cover;
-      position: absolute;
-      top: 1;
-      left: 0;
+      /* margin: 5rem 1rem; */
+      padding: 0;
+      overflow: hidden;
+      /* object-fit: contain; */
+      /* position: absolute;
+      top: 10;
+      left: 0; */
+   }
+
+   & .videoPlayer2 {
+      max-width: 100%;
+      aspect-ratio: 16/9;
+      transform: scale(1.1);
+      pointer-events: none;
    }
 
 }
@@ -24,7 +35,7 @@
    border-radius: 1px;
    border: none;
    position: relative;
-   top: 180%;
+   top: 11rem;
    left: 85%;
    z-index: 200;
 }

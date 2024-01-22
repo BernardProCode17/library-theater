@@ -5,10 +5,11 @@ import Movie from "../../pages/movie/movie";
 import './categories.css';
 
 
-function Categories() {
+function Categories({movieIDSetter}) {
    const [displayList, setDisplayList] = useState([])
    const { listname } = useParams();
-
+   console.log(movieIDSetter())
+   console.log(displayList)
    useEffect(() => {
 
       fetch(`${api.apiURL}${api.apiListing[listname]}`)

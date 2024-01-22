@@ -23,6 +23,7 @@ function App() {
   const receiveResults = (results) => {
     setSearchresults(results);
   }
+console.log(movieID)
 console.log(receiveResults)
   return (
     <Router>
@@ -32,7 +33,7 @@ console.log(receiveResults)
         <Route path="/about" element={<About />}></Route>
         <Route path="/favourites" element={<Favourites />}></Route>
         <Route path="/movie/:id" element={<Movie movieTrailer={movieTrailer} setMovieTrailer={setMovieTrailer} movieIDSetter={movieIDSetter} />}></Route>
-        <Route path="/categories/:listname" element={<Categories />}></Route>
+        <Route path="/categories/:listname" element={<Categories/>}></Route>
         <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
       </Routes>
       <Footer />

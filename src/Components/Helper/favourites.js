@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './svg_styles.css'
 
 function Favourites({ id }) {
-console.log(id)
+// console.log(id)
    const [StorageManagement, setStoragemanagement] = useState(false);
    const [arrayStorage, setArrayStorage] = useState([])
    const buttonRef = useRef();
@@ -37,7 +37,7 @@ console.log(id)
    }
 
 
-   console.log(arrayStorage)
+   // console.log(arrayStorage)
 
    return (
       <button ref={buttonRef} style={{ width: '2.5rem' }} onClick={storageMgn}>

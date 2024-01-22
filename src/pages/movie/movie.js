@@ -6,12 +6,9 @@ import videoFilter from "../../Components/Helper/movieTrailer.js";
 function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})
   const { id } = useParams();
-  // console.log(id)
+ 
   movieIDSetter(id)
 
-
-
-  // console.log(id)
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
@@ -22,9 +19,8 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
       setMovieTrailer([])
     }
   }, [id])
+  
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
-
-
 
   return (
 

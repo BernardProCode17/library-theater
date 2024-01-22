@@ -11,7 +11,6 @@ function Header({ receiveResults, movieTrailer, movieID }) {
   const [videoID, setVideoID] = useState(headerVideo)
   const [videoMute, setVideoMute] = useState(true)
   const location = useLocation();
-  // const videoID = idCheck() ? trailerKey() : headerVideo;
 
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
@@ -88,7 +87,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
 
   const fetchMovieTrailer = async () => {
     const locationID = location.pathname.split('/')[2];
-    // console.log(locationID)
+
     const videoFetch = await fetch(`https://api.themoviedb.org/3/movie/${locationID}/videos?api_key=${api.apiKey}`)
     const videoResponse = await videoFetch.json();
     const trailer = videoResponse.results.find((video) => video.type === 'trailer');
@@ -107,14 +106,14 @@ function Header({ receiveResults, movieTrailer, movieID }) {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="svg">
         <path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z" />
       </svg>
-        ),
+    ),
 
     unmute: () => (
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="svg fill">
         <path d="M320 64c0-12.6-7.4-24-18.9-29.2s-25-3.1-34.4 5.3L131.8 160H64c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h67.8L266.7 471.9c9.4 8.4 22.9 10.4 34.4 5.3S320 460.6 320 448V64z" />
       </svg>
-        )
+    )
 
   }
   return (
@@ -124,19 +123,19 @@ function Header({ receiveResults, movieTrailer, movieID }) {
 
       {headerVideo && (
         <>
-          <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
 
+          <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
           <div className="videoPlayer">
-          <iframe
-            title={headerVideo.title}
-            //width='100%'
-            //height='100%'
-            src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
-            frameborder="0"
-            allowFullScreen
-            //className="videoPlayer"
+            <iframe
+              title={headerVideo.title}
+              width='100%'
+              height='100%'
+              src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
+              frameborder="0"
+              allowFullScreen
+              className="videoPlayer2"
             ></iframe>
-            </div>
+          </div>
         </>
       )}
 
