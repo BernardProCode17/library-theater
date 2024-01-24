@@ -1,5 +1,5 @@
-function videoFilter(videoArray) {
-
+function videoFilter({videoArray}) {
+console.log(videoArray)
 return videoArray.filter((video) => video.type === 'Trailer')
 }
 

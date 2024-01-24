@@ -1,14 +1,14 @@
 import "./Header.css";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import api from "../Helper/api";
+import api from "../../Components/service/api";
 import DeskTopNav from "../Desktop Nav/Desktop_Nav";
 import MobileNav from "../Mobile Nav/Mobile_Nav";
 
 
 function Header({ receiveResults, movieTrailer, movieID }) {
   const [headerVideo, setHeaderVideo] = useState(null);
-  const [videoID, setVideoID] = useState(headerVideo)
+  // const [videoID, setVideoID] = useState(headerVideo)
   const [videoMute, setVideoMute] = useState(true)
   const location = useLocation();
 
@@ -47,58 +47,58 @@ function Header({ receiveResults, movieTrailer, movieID }) {
   //skip to next video when video finish
 
   // Tries attemp one
-  const trailerKey = () => {
-    const findTrailer = movieTrailer.find((element) => element.key)
-    return findTrailer ? findTrailer.key : undefined;
-  }
+  // const trailerKey = () => {
+  //   const findTrailer = movieTrailer.find((element) => element.key)
+  //   return findTrailer ? findTrailer.key : undefined;
+  // }
 
-  function idCheck() {
-    let locationSplit = location.pathname.split('/').pop();
-    let compare = null;
+  // function idCheck() {
+  //   let locationSplit = location.pathname.split('/').pop();
+  //   let compare = null;
 
-    if (locationSplit === movieID) {
-      return compare = true;
-    } else {
-      return compare = false;
-    }
-  }
+  //   if (locationSplit === movieID) {
+  //     return compare = true;
+  //   } else {
+  //     return compare = false;
+  //   }
+  // }
   //tries attempt two 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (location.pathname === '/') {
-      setVideoID(headerVideo);
-    } else if (movieTrailer && movieTrailer.length > 0) {
-      const trailer = movieTrailer.find((video) => video.type === 'trailer');
-      if (trailer) {
-        setVideoID(trailer.key)
-      }
-    }
-  }, [location.pathname, headerVideo, movieTrailer]);
+  //   if (location.pathname === '/') {
+  //     setVideoID(headerVideo);
+  //   } else if (movieTrailer && movieTrailer.length > 0) {
+  //     const trailer = movieTrailer.find((video) => video.type === 'trailer');
+  //     if (trailer) {
+  //       setVideoID(trailer.key)
+  //     }
+  //   }
+  // }, [location.pathname, headerVideo, movieTrailer]);
   //Tries Attemp three
-  useEffect(() => {
+  // useEffect(() => {
 
-    if (location.pathname === '/') {
-      setVideoID(headerVideo);
-    } else {
-      fetchMovieTrailer();
-    }
-  }, [location.pathname, headerVideo])
+  //   if (location.pathname === '/') {
+  //     setVideoID(headerVideo);
+  //   } else {
+  //     fetchMovieTrailer();
+  //   }
+  // }, [location.pathname, headerVideo])
 
 
-  const fetchMovieTrailer = async () => {
-    const locationID = location.pathname.split('/')[2];
+  // const fetchMovieTrailer = async () => {
+  //   const locationID = location.pathname.split('/')[2];
 
-    const videoFetch = await fetch(`https://api.themoviedb.org/3/movie/${locationID}/videos?api_key=${api.apiKey}`)
-    const videoResponse = await videoFetch.json();
-    const trailer = videoResponse.results.find((video) => video.type === 'trailer');
+  //   const videoFetch = await fetch(`https://api.themoviedb.org/3/movie/${locationID}/videos?api_key=${api.apiKey}`)
+  //   const videoResponse = await videoFetch.json();
+  //   const trailer = videoResponse.results.find((video) => video.type === 'trailer');
 
-    if (trailer) {
-      setVideoID(trailer.key);
-    } else {
-      // fix this the handle error when video not found.
-      console.log('Trailer Not Found')
-    }
-  }
+  //   if (trailer) {
+  //     setVideoID(trailer.key);
+  //   } else {
+  //     // fix this the handle error when video not found.
+  //     console.log('Trailer Not Found')
+  //   }
+  // }
   const SVG = {
 
     mute: () => (
@@ -130,7 +130,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
               title={headerVideo.title}
               width='100%'
               height='100%'
-              src={`https://www.youtube.com/embed/${videoID}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
+              src={`https://www.youtube.com/embed/${headerVideo}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
               frameborder="0"
               allowFullScreen
               className="videoPlayer2"

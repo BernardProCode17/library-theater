@@ -1,32 +1,44 @@
+import './Footer.css';
 import logo from '../../logo images/logo.png';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Footer(){
+function Footer() {
 
-   return(
-      <footer>
-         <p>&copy;</p>
-         <img src={logo} alt="library theater logo" width={150}/>
+   return (
+      <footer className='footer'>
 
-         <nav>
-            <ul>
-               <li><Link to="/main">Home</Link></li>
+         <div className='logo-copyright'>
+            <img src={logo} alt="library theater logo" width={150} className='footer-logo' />
+            <p>&copy; 2023</p>
+         </div>
 
-               <li><Link to="/about">About</Link></li>
+         <nav className='footer-nav'>
 
-               <li><Link to="/favourites">Favourites</Link></li>
+            <div className='footer-page-nav'>
+               <ul>
+                  <li><Link to="/main">Home</Link></li>
 
-               <li><Link to='/categories'>Popular</Link></li>
+                  <li><Link to="/about">About</Link></li>
 
-               <li><a href='#now-playing'>Now Playing</a></li>
+                  <li><Link to="/favourites">Favourites</Link></li>
+               </ul>
+            </div>
 
-               <li><a href='#upcoming'>Upcoming</a></li>
+            <div className='footer-categories-nav'>
+               <h3>Categories </h3>
+               <ul>
+                  <li><Link to='/categories'>Popular</Link></li>
 
-               <li><a href='#top-rated'>Top Rated</a></li>
+                  <li><Link to='/categories'>Now Playing</Link></li>
 
-            </ul>
+                  <li><Link to='/categories'>Upcoming</Link></li>
+
+                  <li><Link to='/categories'>Top Rated</Link></li>
+               </ul>
+            </div>
+
          </nav>
-      </footer>
+      </footer >
    )
 }
 export default Footer;

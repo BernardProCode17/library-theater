@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import api from "../../Components/Helper/api.js";
+import api from "../../Components/service/api";
 import { useParams } from "react-router-dom";
-import videoFilter from "../../Components/Helper/movieTrailer.js";
+// import videoFilter from "../../Components/service/movieTrailer.js";
 
 function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})
   const { id } = useParams();
  
-  movieIDSetter(id)
+  // movieIDSetter(id)
 
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
         setDetails(data);
-        setMovieTrailer(videoFilter(data.videos.results))
+        //setMovieTrailer(videoFilter(data.videos.results))
       })
     return () => {
-      setMovieTrailer([])
+      //setMovieTrailer([])
     }
   }, [id])
   
@@ -30,9 +30,9 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
         <h2>{title}</h2>
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
 
-        <video >
+        {/* <video >
           <source src={videoFilter(movieTrailer)} />
-        </video>
+        </video> */}
 
         <p>{overview}</p>
         <p>{popularity}</p>

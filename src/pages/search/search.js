@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import api from "../../Components/Helper/api";
+import api from "../../Components/service/api";
 
 function SearchDisplay({ results }) {
    console.log(results)

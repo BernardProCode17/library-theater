@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import api from "../../Components/Helper/api";
+import api from "../../Components/service/api";
 import MovieDisplay from "../../Components/Movie/moviedisplay";
 import { Link } from "react-router-dom";
 

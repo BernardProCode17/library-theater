@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from '../Helper/api';
+import api from '../../Components/service/api';
 import "./search.css";
 import { useNavigate } from "react-router-dom";
 

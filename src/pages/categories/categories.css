@@ -1,10 +1,5 @@
-/* .categories {
-   background-color: blue;
-   display: flex;
-} */
-
 .categories {
-   background-color: azure;
+   background-color: darkblue;
    width: 100%;
    display: flex;
    flex-direction: row;
@@ -20,7 +15,7 @@
       width: 100%;
       position: relative;
       top: 0;
-      background-color: rgba(133, 247, 247, 0.271);
+      background-color: darkblue;
 
       & h2 {
          position: absolute;
