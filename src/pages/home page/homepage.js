@@ -8,9 +8,6 @@ import { Link } from "react-router-dom";
 function HomePage() {
   // need a function to display the listins in a section tag with the movie articles
   const [MovieListing, setMovieListing] = useState({});
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [displayCount, setDisplaycount] = useState(6)
-
 
   useEffect(() => {
     const listingApi = async () => {
@@ -40,24 +37,24 @@ function HomePage() {
 
       {Object.entries(MovieListing).map(([list, movies, index]) => {
         const listUrl = list.replace(" ", "_");
+        let evenAmtMovie = movies.length;
+        if(evenAmtMovie % 2 !== 0){
+          evenAmtMovie -= 2;
+        }
         return (
           <section key={index} id={list.id} className="Categories">
 
             <div className="title-button">
-              {(selectedSection === null || selectedSection === list) && (
-                <h2>{list}</h2>
-              )}
+              <h2>{list}</h2>
 
-              {!selectedSection && (
-                <Link to={`/Categories/${listUrl}/`}>{list}</Link>
-              )}
+              <Link to={`/Categories/${listUrl}/`}>{list}</Link>
             </div>
 
             <div className="articles">
-              {(selectedSection === null || selectedSection === list) &&
-                movies.slice(0, displayCount).map((movie) => <MovieDisplay key={movie.id} movie={movie} />)}
+              {movies.slice(0, Math.min(4, evenAmtMovie)).map((movie) =>
+                <MovieDisplay key={movie.id} movie={movie} />)
+              }
             </div>
-
           </section>
         )
       })}
