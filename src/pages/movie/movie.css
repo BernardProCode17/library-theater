@@ -1,0 +1,36 @@
+.movie-main {
+   background-color: darkblue;
+   padding: 0.3rem;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+
+   & h1 {
+      width: max-content;
+      font-size: 2.5rem;
+      margin: 1rem auto;
+   }
+
+   & img {
+      border-radius: 0.625rem;
+   }
+
+   & .overview {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: rgb(240, 248, 255, 0.3);
+      border-radius: 0.625rem;
+      box-shadow: 2px 2px 3px inset, 2px 2px 3px inset;
+   }
+}
+
+.top-info,
+.info {
+   display: inline-flex;
+   justify-content: space-between;
+   align-items: center;
+   column-gap: 7rem;
+   padding: 0rem 0.5rem;
+}

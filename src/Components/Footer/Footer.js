@@ -7,9 +7,10 @@ function Footer() {
    return (
       <footer className='footer'>
 
-         <div className='logo-copyright'>
-            <img src={logo} alt="library theater logo" width={150} className='footer-logo' />
-            <p>&copy; 2023</p>
+         <div className='logo'>
+            <Link to="/">
+               <img src={logo} alt="library theater logo" width={150} className='footer-logo' />
+            </Link>
          </div>
 
          <nav className='footer-nav'>
@@ -38,6 +39,8 @@ function Footer() {
             </div>
 
          </nav>
+         <span className='copyright'><p>&copy; 2023</p></span>
+
       </footer >
    )
 }

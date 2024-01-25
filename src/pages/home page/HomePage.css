@@ -1,7 +1,7 @@
 .Categories {
    background-color: darkblue;
    width: 100%;
-   padding:0 rem;
+   padding: 0rem;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;

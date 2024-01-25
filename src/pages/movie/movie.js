@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../Components/service/api";
 import { useParams } from "react-router-dom";
-// import videoFilter from "../../Components/service/movieTrailer.js";
-
+import './movie.css'
 function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})
   const { id } = useParams();
@@ -24,21 +23,28 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
 
   return (
 
-    <main>
+    <main className="movie-main">
       <section>
 
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
 
         {/* <video >
           <source src={videoFilter(movieTrailer)} />
         </video> */}
 
-        <p>{overview}</p>
-        <p>{popularity}</p>
-        <p>{release_date}</p>
-        <p>{runtime} mins</p>
-        <p>{status}</p>
+        <div className="top-info">
+        <p className="">{release_date}</p>
+        <p className="">{runtime} mins</p>
+        </div>
+
+        <p className="overview">{overview}</p>
+
+        <div className="info">
+        <p className="">{popularity}</p>
+        <p className="">{status}</p>
+        </div>
+          <p className="genre-title">Genre</p>
         {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
       </section>
     </main>

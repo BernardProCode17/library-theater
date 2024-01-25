@@ -51,7 +51,7 @@ function HomePage() {
             </div>
 
             <div className="articles">
-              {movies.slice(0, Math.min(4, evenAmtMovie)).map((movie) =>
+              {movies.slice(0, evenAmtMovie).map((movie) =>
                 <MovieDisplay key={movie.id} movie={movie} />)
               }
             </div>
