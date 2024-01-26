@@ -4,6 +4,7 @@ import axios from "axios";
 import api from "../../Components/service/api";
 import MovieDisplay from "../../Components/Movie/moviedisplay";
 import { Link } from "react-router-dom";
+import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 
 function HomePage() {
   // need a function to display the listins in a section tag with the movie articles
@@ -33,12 +34,12 @@ function HomePage() {
 
   return (
     <>
-
+      <VideoPlayer />
 
       {Object.entries(MovieListing).map(([list, movies, index]) => {
         const listUrl = list.replace(" ", "_");
         let evenAmtMovie = movies.length;
-        if(evenAmtMovie % 2 !== 0){
+        if (evenAmtMovie % 2 !== 0) {
           evenAmtMovie -= 2;
         }
         return (
