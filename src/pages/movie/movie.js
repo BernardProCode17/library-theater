@@ -5,7 +5,7 @@ import './movie.css'
 function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
   const [details, setDetails] = useState({})
   const { id } = useParams();
- 
+
   // movieIDSetter(id)
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
       //setMovieTrailer([])
     }
   }, [id])
-  
+
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
 
   return (
@@ -34,18 +34,21 @@ function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
         </video> */}
 
         <div className="top-info">
-        <p className="">{release_date}</p>
-        <p className="">{runtime} mins</p>
+          <p className="">{release_date}</p>
+          <p className="">{runtime} mins</p>
         </div>
 
         <p className="overview">{overview}</p>
 
         <div className="info">
-        <p className="">{popularity}</p>
-        <p className="">{status}</p>
+          <p className="">{popularity}</p>
+          <p className="">{status}</p>
         </div>
-          <p className="genre-title">Genre</p>
-        {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
+
+        <div className="genre">
+          <p className="genre-title">Genre: </p>
+          {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
+        </div>
       </section>
     </main>
 
