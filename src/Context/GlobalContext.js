@@ -6,7 +6,7 @@ export const GlobalContext = createContext();
 
 
 export function VideoPlayerHeader() {
-const [headerVideo, setHeaderVideo] = useState()
+   const [headerVideo, setHeaderVideo] = useState();
    useEffect(() => {
       async function fetchRandomMovieTrailer() {
          // Fetch a list of movies
@@ -21,7 +21,7 @@ const [headerVideo, setHeaderVideo] = useState()
          const videoData = await videoResponse.json();
 
          const trailer = videoData.results.find((video) => video.type === "Trailer");
-         console.log(trailer)
+
          if (trailer) {
             setHeaderVideo(trailer.key);
          } else {
@@ -31,4 +31,6 @@ const [headerVideo, setHeaderVideo] = useState()
 
       fetchRandomMovieTrailer();
    }, []);
+
+   return headerVideo;
 }

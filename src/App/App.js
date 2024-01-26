@@ -1,6 +1,6 @@
 import './normalize_reset.css';
-import { useState} from "react";
-import {GlobalContext } from '../Context/GlobalContext.js';
+import { useState } from "react";
+import { GlobalContext, VideoPlayerHeader } from '../Context/GlobalContext.js';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header.js";
 import HomePage from "../pages/home page/homepage";
@@ -26,8 +26,8 @@ function App() {
   }
 
   return (
-    <GlobalContext.Provider value={headerVideo}>
-      <Router>
+    <Router basename='library-theater'>
+      <GlobalContext.Provider value={VideoPlayerHeader}>
         <Header receiveResults={receiveResults} movieTrailer={movieTrailer} movieID={movieID} />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
@@ -38,8 +38,8 @@ function App() {
           <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
         </Routes>
         <Footer />
-      </Router>
-    </GlobalContext.Provider>
+      </GlobalContext.Provider>
+    </Router>
   );
 }
 

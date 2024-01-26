@@ -121,7 +121,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
       <MobileNav receiveResults={receiveResults} />
       {/* <DeskTopNav receiveResults={receiveResults} /> */}
 
-      {headerVideo && (
+      {/* {headerVideo && (
         <>
 
           <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
@@ -137,7 +137,7 @@ function Header({ receiveResults, movieTrailer, movieID }) {
             ></iframe>
           </div>
         </>
-      )}
+      )} */}
 
     </header>
   );

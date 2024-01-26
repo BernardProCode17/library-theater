@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import api from "../../Components/service/api";
-import Movie from "../../pages/movie/movie";
+// import Movie from "../../pages/movie/movie";
 import './categories.css';
 import MovieDisplay from "../../Components/Movie/moviedisplay";
+import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 
 
 function Categories({movieIDSetter}) {
@@ -21,12 +22,14 @@ function Categories({movieIDSetter}) {
    }, []);
 
    return (
+      <>
+      < VideoPlayer />
       <main className="categories">
-
          {displayList.map((movie, index) => {
             return <MovieDisplay key={index} movie={movie} />;
          })}
       </main>
+         </>
    )
 }
 

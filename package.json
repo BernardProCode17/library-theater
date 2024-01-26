@@ -1,5 +1,6 @@
 {
   "name": "library-theater",
+  "homepage": "/library-theater",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
