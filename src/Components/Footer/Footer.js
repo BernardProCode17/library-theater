@@ -1,5 +1,5 @@
 import './Footer.css';
-import logo from '../../logo images/logo.png';
+import logo from '../../media/logo.png';
 import { Link } from 'react-router-dom';
 
 function Footer() {

@@ -34,3 +34,4 @@ export function VideoPlayerHeader() {
 
    return headerVideo;
 }
+

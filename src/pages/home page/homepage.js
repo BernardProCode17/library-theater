@@ -32,33 +32,63 @@ function HomePage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [headerVideo, setHeaderVideo] = useState('');
+  useEffect(() => {
+    async function fetchRandomMovieTrailer() {
+      // Fetch a list of movies
+      const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api.apiKey}`);
+      const data = await response.json();
+      console.log(data)
+      // Select a random movie
+      const movie = data.results[Math.floor(Math.random() * data.results.length)];
+
+      //Fetch the videos for the selected movie
+      const videoResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api.apiKey}`);
+      const videoData = await videoResponse.json();
+
+      const trailer = videoData.results.find((video) => video.type === "Trailer");
+
+      if (trailer) {
+        setHeaderVideo(trailer.key);
+      } else {
+        console.log("Trailer not found");
+      }
+    }
+
+    fetchRandomMovieTrailer();
+  }, []);
+
+  console.log(headerVideo)
+
   return (
     <>
-      <VideoPlayer />
+      <VideoPlayer homeTrailer={headerVideo} />
+      <main>
+        {Object.entries(MovieListing).map(([list, movies, index]) => {
+          const listUrl = list.replace(" ", "_");
+          let evenAmtMovie = movies.length;
+          if (evenAmtMovie % 2 !== 0) {
+            evenAmtMovie -= 2;
+          }
+          return (
+            <section key={index} id={list.id} className="Categories">
 
-      {Object.entries(MovieListing).map(([list, movies, index]) => {
-        const listUrl = list.replace(" ", "_");
-        let evenAmtMovie = movies.length;
-        if (evenAmtMovie % 2 !== 0) {
-          evenAmtMovie -= 2;
-        }
-        return (
-          <section key={index} id={list.id} className="Categories">
+              <div className="title-button">
+                <h2>{list}</h2>
 
-            <div className="title-button">
-              <h2>{list}</h2>
+                <Link to={`/Categories/${listUrl}/`}>{list}</Link>
+              </div>
 
-              <Link to={`/Categories/${listUrl}/`}>{list}</Link>
-            </div>
+              <div className="articles">
+                {movies.slice(0, evenAmtMovie).map((movie) =>
+                  <MovieDisplay key={movie.id} movie={movie} />)
+                }
+              </div>
+            </section>
+          )
+        })}
+      </main>
 
-            <div className="articles">
-              {movies.slice(0, evenAmtMovie).map((movie) =>
-                <MovieDisplay key={movie.id} movie={movie} />)
-              }
-            </div>
-          </section>
-        )
-      })}
     </>
   );
 }

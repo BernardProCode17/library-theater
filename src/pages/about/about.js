@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import React, { useState } from "react";
-import TMDBLOGO from '../../logo images/tmdb_logo.svg'
+import TMDBLOGO from '../../media/tmdb_logo.svg'
 import './about.css'
 import about_header from '../../media/about_page_header_image.jpg'
 import Banner from "../../Components/Image Banner/Banner";

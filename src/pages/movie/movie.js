@@ -2,29 +2,31 @@ import { useEffect, useState } from "react";
 import api from "../../Components/service/api";
 import { useParams } from "react-router-dom";
 import './movie.css'
-function Movie({ movieTrailer, setMovieTrailer, movieIDSetter }) {
-  const [details, setDetails] = useState({})
-  const { id } = useParams();
+import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 
-  // movieIDSetter(id)
+function Movie() {
+  const [details, setDetails] = useState({})
+  const [trailerKey, setTrailerKey] = useState();
+  const { id } = useParams();
 
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
-        setDetails(data);
-        //setMovieTrailer(videoFilter(data.videos.results))
+        setDetails(data); // get the movie data dettails
+        const trailerFilter = data.videos.results.filter((video) => video.type === 'Trailer'); // Filter the movie date video by trailer
+        setTrailerKey(trailerFilter.map((video) => video.key)); // Set the movie video key to video player
       })
-    return () => {
-      //setMovieTrailer([])
-    }
+
   }, [id])
 
+  console.log(details)
+
+
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
-
   return (
-
     <main className="movie-main">
       <section>
+        <VideoPlayer trailerKey={trailerKey} />
 
         <h1>{title}</h1>
         <img src={`${api.apiImage}${poster_path}`} alt={title} />

@@ -27,18 +27,18 @@ function App() {
 
   return (
     <Router basename='library-theater'>
-      <GlobalContext.Provider value={VideoPlayerHeader}>
-        <Header receiveResults={receiveResults} movieTrailer={movieTrailer} movieID={movieID} />
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/favourites" element={<Favourites />}></Route>
-          <Route path="/movie/:id" element={<Movie movieTrailer={movieTrailer} setMovieTrailer={setMovieTrailer} movieIDSetter={movieIDSetter} />}></Route>
-          <Route path="/categories/:listname" element={<Categories />}></Route>
-          <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
-        </Routes>
-        <Footer />
-      </GlobalContext.Provider>
+
+      <Header receiveResults={receiveResults} />
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/favourites" element={<Favourites />}></Route>
+        <Route path="/movie/:id" element={<Movie movieTrailer={movieTrailer} setMovieTrailer={setMovieTrailer} movieIDSetter={movieIDSetter} />}></Route>
+        <Route path="/categories/:listname" element={<Categories />}></Route>
+        <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
+      </Routes>
+      <Footer />
+
     </Router>
   );
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react'
-import logo from '../../logo images/logo.png'
+import logo from '../../media/logo.png'
 import Search from "../search/search";
 import './Mobile_Nav.css';
 

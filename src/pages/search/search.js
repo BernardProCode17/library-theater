@@ -16,7 +16,7 @@ function SearchDisplay({ results }) {
                   <p>{overview}</p>
                   <p>{release_date}</p>
 
-                  <Link to={`/moviedetails/${result.id}`}>
+                  <Link to={`/Movie/${result.id}`}>
                      More Info
                   </Link>
                </article>
