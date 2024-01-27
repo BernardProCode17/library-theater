@@ -4,15 +4,12 @@ import { useState } from "react"
 function VideoPlayer({ homeTrailer, trailerKey }) {
    const [videoMute, setVideoMute] = useState(true)
 
-   console.log(homeTrailer)
-   console.log(trailerKey)
-
    // Mute Button
    const toggleMute = (e) => {
       e.preventDefault();
       setVideoMute(!videoMute)
    }
-
+   // Mute Button SVG
    const SVG = {
       mute: () => (
          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" className="svg">
@@ -25,20 +22,19 @@ function VideoPlayer({ homeTrailer, trailerKey }) {
          </svg>
       )
    }
-
+   // Trailer key finder
    const movieKey = function () {
-
       if (trailerKey) {
          if (trailerKey[0]) {
             return trailerKey[0]
          } else if (trailerKey[1]) {
             return trailerKey[1]
-         }else {
+         } else {
             return 'No Trailer found for this Movie'
          }
       }
    }
-   movieKey()
+
    return (
       <section>
          <div className="videoPlayer">
@@ -50,6 +46,7 @@ function VideoPlayer({ homeTrailer, trailerKey }) {
                src={`https://www.youtube.com/embed/${homeTrailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
                frameborder="0"
                allowFullScreen
+               loop
                className="videoPlayer"
             ></iframe>
          </div>
