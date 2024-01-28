@@ -53,7 +53,7 @@ function Movie() {
           {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
         </div>
 
-        <Favourites details={id}/>
+        <Favourites id={id}/>
 
       </section>
     </main>

@@ -4,10 +4,10 @@ import excerpt from "../service/excerpt"
 import { Link } from "react-router-dom";
 import Favourites from "../service/favourites";
 
-function MovieDisplay({ movie }) {
+function MovieDisplay({ movie}) {
 
   const { title, overview, poster_path, release_date, popularity, id } = movie || {};
-  // console.log(movie)
+  
   return (
     // <div className="article-container">
 
@@ -26,7 +26,7 @@ function MovieDisplay({ movie }) {
        
         <div className="fav-link-buttons">
 
-          <Favourites id={movie.id} />
+          <Favourites id={id} />
           <Link to={`/movie/${id}`}>
             More Info
           </Link>

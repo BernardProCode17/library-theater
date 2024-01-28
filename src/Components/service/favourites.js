@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './svg_styles.css'
 
 function Favourites({ id }) {
@@ -25,7 +25,7 @@ function Favourites({ id }) {
       localStorage.setItem("MovieId", JSON.stringify(remove));
    }
 
-   const storageManagement = arrayStorage.includes();
+   const storageManagement = arrayStorage.includes(id);
 
    const svgIcons = {
       favourites: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='add remove'>
