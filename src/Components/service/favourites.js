@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './svg_styles.css'
 
-function Favourites({ id }) {
+function Favourites({ id, removeMovie }) {
    const [arrayStorage, setArrayStorage] = useState([]);
 
    useEffect(() => {

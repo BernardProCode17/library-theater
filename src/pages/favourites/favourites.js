@@ -16,6 +16,10 @@ function Favourites() {
 
    console.log(recentMovies)
 
+function removeMovie(id){
+   setRecentMovies(recentMovies => recentMovies.filter(movie => movie.id !== id));
+}
+
    return (
       <main>
          <h1>Favourites</h1>
@@ -24,10 +28,10 @@ function Favourites() {
             <h2>Recent Favourites</h2>
 
             {recentMovies.length === 0 ? <p>You curently don't have any favourites movies </p> :
-            recentMovies.map(movie => <MovieDisplay movie={movie}/>)
+               recentMovies.map(movie => <MovieDisplay key={movie.id} movie={movie} removeMovie={removeMovie} />)
             }
             {/* <MovieDisplay movie={recentMovies}/> */}
-            
+
          </section>
 
          <section>
