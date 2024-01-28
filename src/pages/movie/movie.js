@@ -3,6 +3,7 @@ import api from "../../Components/service/api";
 import { useParams } from "react-router-dom";
 import './movie.css'
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
+import Favourites from "../../Components/service/favourites";
 
 function Movie() {
   const [details, setDetails] = useState({})
@@ -19,7 +20,7 @@ function Movie() {
 
   }, [id])
 
-  console.log(details)
+  console.log(details.id)
 
 
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
@@ -51,6 +52,9 @@ function Movie() {
           <p className="genre-title">Genre: </p>
           {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
         </div>
+
+        <Favourites details={id}/>
+
       </section>
     </main>
 
