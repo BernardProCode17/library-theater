@@ -7,7 +7,7 @@ import Favourites from "../service/favourites";
 function MovieDisplay({ movie}) {
 
   const { title, overview, poster_path, release_date, popularity, id } = movie || {};
-  
+  console.log(release_date)
   return (
     // <div className="article-container">
 
