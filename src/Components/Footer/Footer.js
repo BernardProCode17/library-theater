@@ -17,7 +17,7 @@ function Footer() {
 
             <div className='footer-page-nav'>
                <ul>
-                  <li><Link to="/main">Home</Link></li>
+                  <li><Link to="/">Home</Link></li>
 
                   <li><Link to="/about">About</Link></li>
 
@@ -28,13 +28,13 @@ function Footer() {
             <div className='footer-categories-nav'>
                <h3>Categories </h3>
                <ul>
-                  <li><Link to='/categories'>Popular</Link></li>
+                  <li><Link to='/categories/Popular/'>Popular</Link></li>
 
-                  <li><Link to='/categories'>Now Playing</Link></li>
+                  <li><Link to='/categories/Now_Playing/'>Now Playing</Link></li>
 
-                  <li><Link to='/categories'>Upcoming</Link></li>
+                  <li><Link to='/categories/Upcoming/'>Upcoming</Link></li>
 
-                  <li><Link to='/categories'>Top Rated</Link></li>
+                  <li><Link to='/categories/Top_Rated'>Top Rated</Link></li>
                </ul>
             </div>
 

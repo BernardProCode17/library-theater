@@ -1,7 +1,7 @@
 import { useState } from "react"
 // import { GlobalContext } from "../../Context/GlobalContext"
 
-function VideoPlayer({ homeTrailer, trailerKey }) {
+function VideoPlayer({ trailer, trailerKey }) {
    const [videoMute, setVideoMute] = useState(true)
 
    // Mute Button
@@ -40,10 +40,10 @@ function VideoPlayer({ homeTrailer, trailerKey }) {
          <div className="videoPlayer">
             <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
             <iframe
-               title={homeTrailer}
+               title={trailer}
                width='100%'
                height='100%'
-               src={`https://www.youtube.com/embed/${homeTrailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
+               src={`https://www.youtube.com/embed/${trailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
                frameborder="0"
                allowFullScreen
                loop

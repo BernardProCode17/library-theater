@@ -38,7 +38,7 @@ function HomePage() {
       // Fetch a list of movies
       const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${api.apiKey}`);
       const data = await response.json();
-      console.log(data)
+      
       // Select a random movie
       const movie = data.results[Math.floor(Math.random() * data.results.length)];
 
@@ -58,11 +58,9 @@ function HomePage() {
     fetchRandomMovieTrailer();
   }, []);
 
-  console.log(headerVideo)
-
   return (
     <>
-      <VideoPlayer homeTrailer={headerVideo} />
+      <VideoPlayer trailer={headerVideo} />
       <main>
         {Object.entries(MovieListing).map(([list, movies, index]) => {
           const listUrl = list.replace(" ", "_");
