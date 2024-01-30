@@ -1,0 +1,8 @@
+.fav-main{
+   background-color: darkblue;
+   color: #fff;
+
+   & h1 {
+      margin: 0rem;
+   }
+}

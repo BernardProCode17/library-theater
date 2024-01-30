@@ -1,3 +1,41 @@
-.about-main{
-   background-color:bisque
+.about-main {
+   background-color: darkblue;
+   color: #fff;
+}
+
+.about-section {
+   /* background-color: green; */
+   padding: 0.7rem;
+   
+   & h2 {
+      width: max-content;
+      margin: 0rem auto;
+   }
+   
+   & article {
+      background-color: blue;
+      margin: 0.5rem 0rem;
+      border-radius: 0.625rem;
+      margin: 0.5rem auto;
+      
+      & img {
+         margin: 0rem auto;
+         border-top-right-radius: 10px;
+         border-top-left-radius: 10px;
+         width: 200px;
+      }
+      
+      & .staff-info {
+         margin: 0rem auto;
+         padding: 0.5rem;
+
+         & h3 {
+            font-weight: 600;
+         }
+         
+         & span {
+            font-weight: 600;
+         }
+      }
+   }
 }
