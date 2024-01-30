@@ -38,7 +38,7 @@ function Favourites({ id, removeMovie }) {
    }
    return (
       <button style={{ width: '2.5rem' }} onClick={storageManagement ? RemovefromStorage : addToStorage}>
-         {svgIcons.favourites}
+         {svgIcons.favourites || svgIcons.allTimeFavourites}
       </button>
    )
 }

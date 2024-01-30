@@ -46,7 +46,7 @@ function About() {
 
                <img src={TMDBLOGO} alt="TMDB logo" width={100} />
 
-               <p>"This app uses the <b>TMBD</b> api but is not <em>endorsed</em> or <em>certified</em> by <b>TMDb</b>"</p>
+               <p>"This app uses the <b>TMBD</b> api but is not <em>endorsed</em> or <em>certified</em> by <b>TMDB</b>"</p>
 
                <a href="https://www.themoviedb.org/faq/api">TMBD Attribution Requirement Link</a>
                

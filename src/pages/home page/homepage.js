@@ -9,6 +9,7 @@ import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 function HomePage() {
   // need a function to display the listins in a section tag with the movie articles
   const [MovieListing, setMovieListing] = useState({});
+  
 
   useEffect(() => {
     const listingApi = async () => {

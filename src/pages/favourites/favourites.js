@@ -38,10 +38,11 @@ function Favourites() {
                }
             </section>
 
-            <section>
+               {/* To be Worked on later ***********************    */}
+            {/* <section>
                <h2>All Time Favourites</h2>
                <p>Pick you all time favourites movies</p>
-            </section>
+            </section> */}
          </main>
       </>
    )

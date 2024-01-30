@@ -4,17 +4,18 @@ import { useParams } from "react-router-dom";
 import './movie.css'
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 import Favourites from "../../Components/service/favourites";
-import DateFormate from "../../Components/service/dateFormat";
+// import DateFormate from "../../Components/service/dateFormat";
 
 function Movie() {
   const [details, setDetails] = useState({})
   const [trailerKey, setTrailerKey] = useState();
+ 
   const { id } = useParams();
 
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
-        setDetails(data); // get the movie data dettails
+        setDetails(data); // get the movie data dettails      
         const trailerFilter = data.videos.results.filter((video) => video.type === 'Trailer'); // Filter the movie date video by trailer
         setTrailerKey(trailerFilter.map((video) => video.key)); // Set the movie video key to video player
       })
@@ -22,8 +23,8 @@ function Movie() {
   }, [id])
 
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
-  console.log(DateFormate(release_date))
-  console.log(typeof release_date)
+  // console.log(DateFormate(release_date))
+  // console.log(typeof release_date)
   return (
     <main className="movie-main">
       <section>

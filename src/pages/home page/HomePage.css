@@ -1,11 +1,12 @@
 .Categories {
-   background-color: darkblue;
+   /* background-color: darkblue; */
    width: 100%;
    padding: 0rem;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
-   margin-top: 2rem;
+   margin-top: 0.5rem;
+   border-radius: 0.625rem;
 
    & .title-button {
       display: inline-flex;
@@ -15,6 +16,7 @@
       align-items: center;
       row-gap: 0.7rem;
       padding: 0.5rem;
+     border-radius: 0.625rem;
       width: 100%;
       background-color: #85f7f745;
 

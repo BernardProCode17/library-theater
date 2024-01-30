@@ -11,13 +11,14 @@ function Categories() {
    const [headerVideo, setHeaderVideo] = useState('');
    const { listname } = useParams();
    const listnameTLC = listname.toLowerCase();
-
+   const [totalPages, setTotalPages] = useState({})
 
    useEffect(() => {
       fetch(`${api.apiURL}${api.apiListing[listname]}`)
          .then(response => response.json())
          .then(data => {
             setDisplayList(data.results)
+           console.log(data.total_pages)
          });
    }, [listname]);
 
