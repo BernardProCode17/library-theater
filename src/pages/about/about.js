@@ -35,17 +35,21 @@ function About() {
                   <div className="staff-info">
 
                      <h3><span>Ceecee Mann</span></h3>
-                     <p><span>Title:</span>CTO</p>
+                     <p><span>Title:</span> CTO</p>
                      <p><span>Bio:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut possimus, reiciendis, pariatur omnis dicta minus cupiditate, ipsa facere et odit sint quae ratione deserunt vel accusamus commodi repellendus voluptatem ullam consequuntur mollitia? Est, molestiae rem, ipsam quis accusamus asperiores in libero corrupti assumenda ratione quod laudantium eius officia dicta perferendis.</p>
                   </div>
                </article>
             </section>
 
-            <section>
+            <section className="attribution">
                <h2>TMDB Attribution</h2>
-               <img src={TMDBLOGO} alt="TMDB logo" width={200} />
+
+               <img src={TMDBLOGO} alt="TMDB logo" width={100} />
+
                <p>"This app uses the <b>TMBD</b> api but is not <em>endorsed</em> or <em>certified</em> by <b>TMDb</b>"</p>
+
                <a href="https://www.themoviedb.org/faq/api">TMBD Attribution Requirement Link</a>
+               
             </section>
 
          </main>

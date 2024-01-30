@@ -17,12 +17,15 @@
       margin: 0.5rem 0rem;
       border-radius: 0.625rem;
       margin: 0.5rem auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
       
       & img {
-         margin: 0rem auto;
-         border-top-right-radius: 10px;
-         border-top-left-radius: 10px;
-         width: 200px;
+         margin: 0.7rem auto;
+         border-radius: 10px;
+         width: 280px;
       }
       
       & .staff-info {
@@ -36,6 +39,33 @@
          & span {
             font-weight: 600;
          }
+      }
+   }
+}
+
+
+
+
+
+.attribution{
+  background-color: #ffffff30;
+   padding: 0.5rem;
+   border-radius: 10px;
+
+   & img{
+      width: 6.25rem;
+      margin-top: 0.7rem;
+   }
+
+   & p{
+      font-size: 1.1rem;
+
+      & em{
+         font-weight: 700;
+      }
+
+      & a{
+
       }
    }
 }
