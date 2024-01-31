@@ -1,5 +1,5 @@
-import { useState } from "react"
-// import { GlobalContext } from "../../Context/GlobalContext"
+import { useState } from "react";
+import './videoPlayer.css'
 
 function VideoPlayer({ trailer, trailerKey }) {
    const [videoMute, setVideoMute] = useState(true)
@@ -36,8 +36,7 @@ function VideoPlayer({ trailer, trailerKey }) {
    }
 
    return (
-      <section>
-         <div className="videoPlayer">
+      <div className="videoPlayer-div">
             <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
             <iframe
                title={trailer}
@@ -47,12 +46,13 @@ function VideoPlayer({ trailer, trailerKey }) {
                frameborder="0"
                allowFullScreen
                loop
-               className="videoPlayer"
+               className="videoPlayer-iframe"
             ></iframe>
          </div>
-      </section >
    )
 }
+// <section className="videoPlayer">
+{/* </section > */}
 
 
 export default VideoPlayer;

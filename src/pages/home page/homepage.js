@@ -65,10 +65,10 @@ function HomePage() {
       <main>
         {Object.entries(MovieListing).map(([list, movies, index]) => {
           const listUrl = list.replace(" ", "_");
-          let evenAmtMovie = movies.length;
-          if (evenAmtMovie % 2 !== 0) {
-            evenAmtMovie -= 2;
-          }
+          // let evenAmtMovie = movies.length;
+          // if (evenAmtMovie % 2 !== 0) {
+          //   evenAmtMovie -= 2;
+          // }
           return (
             <section key={index} id={list.id} className="Categories">
 
@@ -79,7 +79,7 @@ function HomePage() {
               </div>
 
               <div className="articles">
-                {movies.slice(0, evenAmtMovie).map((movie) =>
+                {movies.slice(0, 4).map((movie) =>
                   <MovieDisplay key={movie.id} movie={movie} />)
                 }
               </div>

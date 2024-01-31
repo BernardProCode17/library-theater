@@ -27,10 +27,8 @@ function Favourites() {
 
    return (
       <>
-      <Banner image={favourites_page_header} h1={h1} alt={alt}/>
+         <Banner image={favourites_page_header} h1={h1} alt={alt} />
          <main className="fav-main">
-            <h1>Favourites</h1>
-
             <section>
                <h2>Recent Favourites</h2>
                {recentMovies.length === 0 ? <p>You curently don't have any favourites movies </p> :
@@ -38,7 +36,7 @@ function Favourites() {
                }
             </section>
 
-               {/* To be Worked on later ***********************    */}
+            {/* To be Worked on later ***********************    */}
             {/* <section>
                <h2>All Time Favourites</h2>
                <p>Pick you all time favourites movies</p>

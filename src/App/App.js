@@ -20,7 +20,6 @@ function App() {
 
   return (
     <Router basename='library-theater'>
-
       <Header receiveResults={receiveResults} />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
@@ -31,7 +30,6 @@ function App() {
         <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
       </Routes>
       <Footer />
-
     </Router>
   );
 }

@@ -15,6 +15,7 @@ function Movie() {
   useEffect(() => {
     api.getMovie(id)
       .then(data => {
+        console.log(data)
         setDetails(data); // get the movie data dettails      
         const trailerFilter = data.videos.results.filter((video) => video.type === 'Trailer'); // Filter the movie date video by trailer
         setTrailerKey(trailerFilter.map((video) => video.key)); // Set the movie video key to video player
@@ -23,8 +24,6 @@ function Movie() {
   }, [id])
 
   const { title, overview, poster_path, popularity, release_date, runtime, status, genres } = details || {};
-  // console.log(DateFormate(release_date))
-  // console.log(typeof release_date)
   return (
     <main className="movie-main">
       <section>
@@ -32,10 +31,6 @@ function Movie() {
 
         <h1>{title}</h1>
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
-
-        {/* <video >
-          <source src={videoFilter(movieTrailer)} />
-        </video> */}
 
         <div className="top-info">
           <p className="">{release_date}</p>

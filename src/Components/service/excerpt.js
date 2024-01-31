@@ -1,7 +1,7 @@
-function excerpt(overview, maxWords){
-   if(overview.length > maxWords){
+function excerpt(overview, maxWords) {
+   if (overview.length > maxWords) {
       return overview.substring(0, maxWords) + '...'
-   }else{
+   } else {
       return overview;
    }
 }

@@ -6,12 +6,12 @@
 .about-section {
    /* background-color: green; */
    padding: 0.7rem;
-   
+
    & h2 {
       width: max-content;
       margin: 0rem auto;
    }
-   
+
    & article {
       background-color: blue;
       margin: 0.5rem 0rem;
@@ -21,13 +21,14 @@
       flex-direction: column;
       justify-content: center;
       align-self: center;
-      
+
       & img {
          margin: 0.7rem auto;
          border-radius: 10px;
          width: 280px;
+         /* height: 12.5rem; */
       }
-      
+
       & .staff-info {
          margin: 0rem auto;
          padding: 0.5rem;
@@ -35,7 +36,7 @@
          & h3 {
             font-weight: 600;
          }
-         
+
          & span {
             font-weight: 600;
          }
@@ -47,25 +48,29 @@
 
 
 
-.attribution{
-  background-color: #ffffff30;
+.attribution {
+   background-color: #ffffff30;
    padding: 0.5rem;
-   border-radius: 10px;
+   border-radius: 0.625rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-content: center;
+   margin: 0rem auto;
 
-   & img{
+   & img {
       width: 6.25rem;
       margin-top: 0.7rem;
    }
-
-   & p{
+   & p {
       font-size: 1.1rem;
 
-      & em{
+      & em {
          font-weight: 700;
       }
 
-      & a{
-
+      & a {
+         text-align: center;
       }
    }
 }
