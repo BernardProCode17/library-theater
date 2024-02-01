@@ -25,7 +25,7 @@ function MovieDisplay({ movie}) {
         <p className="description">{excerpt(overview, 120)}</p>
         <div className="fav-link-buttons">
 
-          <Favourites id={id} />
+          <Favourites movie={movie} />
           <Link to={`/movie/${id}`}>
             More Info
           </Link>

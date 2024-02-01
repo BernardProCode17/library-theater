@@ -31,7 +31,7 @@ function Favourites() {
          <main className="fav-main">
             <section>
                <h2>Recent Favourites</h2>
-               {recentMovies.length === 0 ? <p>You curently don't have any favourites movies </p> :
+               {recentMovies && recentMovies ? <p>You curently don't have any favourites movies </p> :
                   recentMovies.map(movie => <MovieDisplay key={movie.id} movie={movie} removeMovie={removeMovie} />)
                }
             </section>

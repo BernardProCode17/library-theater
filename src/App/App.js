@@ -9,6 +9,7 @@ import Favourites from "../pages/favourites/favourites.js";
 import Categories from "../pages/categories/categories.js";
 import SearchDisplay from "../pages/search/search.js";
 import Footer from "../Components/Footer/Footer.js";
+import { GlobalProvider } from '../Context/GlobalContext.js';
 
 function App() {
 
@@ -19,17 +20,19 @@ function App() {
   }
 
   return (
-    <Router basename='library-theater'>
-      <Header receiveResults={receiveResults} />
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/favourites" element={<Favourites />}></Route>
-        <Route path="/movie/:id" element={<Movie />}></Route>
-        <Route path="/categories/:listname" element={<Categories />}></Route>
-        <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
-      </Routes>
-      <Footer />
+    <Router>
+      <GlobalProvider>
+        <Header receiveResults={receiveResults} />
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/favourites" element={<Favourites />}></Route>
+          <Route path="/movie/:id" element={<Movie />}></Route>
+          <Route path="/categories/:listname" element={<Categories />}></Route>
+          <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
+        </Routes>
+        <Footer />
+      </GlobalProvider>
     </Router>
   );
 }
