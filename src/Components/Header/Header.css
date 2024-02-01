@@ -14,7 +14,7 @@
       justify-content: space-between;
       align-items: center;
       background-color: rgb(240, 248, 255, 0.5);
-      /* visibility: hidden; */
+      visibility: hidden;
    }
       
    .Nav img {
@@ -46,7 +46,7 @@
          border-radius: 5px;
       }
    }
-   /* & .Nav:hover {
+   &:hover .Nav {
       position: relative;
       top: 0;
       width: 100%;
@@ -55,7 +55,7 @@
       align-items: center;
       background-color: aliceblue;
       visibility: visible;
-   } */
+   }
 
    & .links-search {
       display: flex;
