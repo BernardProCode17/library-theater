@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './normalize_reset.css';
 import './index.css';
 import App from './App/App';
 

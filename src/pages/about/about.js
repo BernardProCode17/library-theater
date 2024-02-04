@@ -35,7 +35,7 @@ function About() {
                   <img src={ceecee_mann} alt="Portrait of Ceecee man, in her office smiling, CTO of library theater" />
 
                   <div className="staff-info">
-                     <h3><span>Ceecee Mann</span></h3>
+                     <h3><span>Ceece Ipsum</span></h3>
                      <p><span>Title:</span> CTO</p>
                      <p><span>Bio:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut possimus, reiciendis, pariatur omnis dicta minus cupiditate, ipsa facere et odit sint quae ratione deserunt vel accusamus commodi repellendus voluptatem ullam consequuntur mollitia? Est, molestiae rem, ipsam quis accusamus asperiores in libero corrupti assumenda ratione quod laudantium eius officia dicta perferendis.</p>
                   </div>

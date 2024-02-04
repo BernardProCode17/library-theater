@@ -1,4 +1,3 @@
-import './normalize_reset.css';
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../Components/Header/Header.js";
@@ -10,6 +9,7 @@ import Categories from "../pages/categories/categories.js";
 import SearchDisplay from "../pages/search/search.js";
 import Footer from "../Components/Footer/Footer.js";
 import { GlobalProvider } from '../Context/GlobalContext.js';
+
 
 function App() {
 

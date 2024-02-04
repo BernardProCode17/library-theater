@@ -58,6 +58,7 @@ function Categories() {
 
          {/* map over the movie cotegory pass the information to the movieDisplay component and render the list of movies */}
          <main className="categories">
+            <button type="button" className="backButton">Back</button>
             {displayList.map((movie, index) => {
                return <MovieDisplay key={index} movie={movie} />;
             })}
