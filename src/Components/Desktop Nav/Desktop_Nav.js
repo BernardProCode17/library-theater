@@ -1,3 +1,4 @@
+import './DesktopNav.css'
 import logo from "../../media/logo.png";
 import { Link } from "react-router-dom";
 import Search from "../search/search";
@@ -7,7 +8,7 @@ import Search from "../search/search";
 function DeskTopNav(receiveResults) {
 
    return (
-      <section>
+      <section className='desktop-menu'>
          {/* logo with link the to home page */}
          <Link to="/">
             <img src={logo} alt="Logo of library Theater company" />

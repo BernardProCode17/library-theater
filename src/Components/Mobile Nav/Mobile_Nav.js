@@ -8,13 +8,10 @@ import './Mobile_Nav.css';
 function MobileNav({ receiveResults }) {
    const [menuState, setMenuState] = useState(false);
 
-
    function menuToggle() {
       setMenuState(!menuState);
    }
-
-
-
+   
    return (
       <div>
          <div className="logo-menu">

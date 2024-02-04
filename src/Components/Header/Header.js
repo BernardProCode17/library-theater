@@ -5,29 +5,23 @@ import { useEffect, useState } from "react";
 
 
 function Header({ receiveResults }) {
-  const [devicewidth, setDevicewidth] = useState(window.innerWidth = 320)
-  // if device width is greater then x amount of px then show the desktop nav menu else show the mobile menu
+  const [devicewidth, setDevicewidth] = useState(window.innerWidth >= 320)
 
   useEffect(() => {
+
     function resize() {
-      return setDevicewidth(window.innerWidth >= 1280)
-    }
+      return setDevicewidth(window.innerWidth >= 950)
+    };
     window.addEventListener('resize', resize)
-  })
 
+    return () => {
+      window.removeEventListener('resize', resize)
+    };
+  }, []);
 
-  function navPxWidth() {
-    if (window.innerWidth > 1280) {
-      return <MobileNav receiveResults={receiveResults} />
-    } else {
-      return <DeskTopNav receiveResults={receiveResults} />
-    }
-  }
   return (
     <header className="mainHeader">
-      {navPxWidth()}
-      {/* <MobileNav receiveResults={receiveResults} />
-      <DeskTopNav receiveResults={receiveResults} /> */}
+      {devicewidth ? <DeskTopNav receiveResults={receiveResults} /> : <MobileNav receiveResults={receiveResults} />}
     </header>
   );
 }

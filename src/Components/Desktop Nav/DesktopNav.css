@@ -1,0 +1,30 @@
+.desktop-menu {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0rem 1rem;
+   width: 100%;
+   /* background-color: aliceblue; */
+
+   & img {
+      width: 150px;
+   }
+}
+
+.links-search {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.Nav ul{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   column-gap:0.7rem;
+   font-size: 1.3rem;
+   list-style: none;
+
+}
