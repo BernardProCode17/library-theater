@@ -4,7 +4,7 @@ import MobileNav from "../Mobile Nav/Mobile_Nav";
 import { useEffect, useState } from "react";
 
 
-function Header({ receiveResults }) {
+function Header({ RR }) {
   const [devicewidth, setDevicewidth] = useState(window.innerWidth >= 320)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function Header({ receiveResults }) {
 
   return (
     <header className="mainHeader">
-      {devicewidth ? <DeskTopNav receiveResults={receiveResults} /> : <MobileNav receiveResults={receiveResults} />}
+      {devicewidth ? <DeskTopNav RR={RR} /> : <MobileNav RR={RR} />}
     </header>
   );
 }

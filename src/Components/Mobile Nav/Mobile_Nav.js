@@ -5,13 +5,13 @@ import Search from "../search/search";
 import './Mobile_Nav.css';
 
 
-function MobileNav({ receiveResults }) {
+function MobileNav({ RR }) {
    const [menuState, setMenuState] = useState(false);
-
+   
    function menuToggle() {
       setMenuState(!menuState);
    }
-   
+
    return (
       <div>
          <div className="logo-menu">
@@ -29,11 +29,11 @@ function MobileNav({ receiveResults }) {
          <nav className={`mobileNav ${menuState ? 'mobileNavShow' : ''}`} >
             <div className="links-search">
                <ul>
-                  <li><Link to="/" onClick={()=> setMenuState(false)}>Home</Link></li>
-                  <li><Link to="/about" onClick={()=> setMenuState(false)}>About</Link></li>
-                  <li><Link to="/favourites" onClick={()=> setMenuState(false)}>Favourites</Link></li>
+                  <li><Link to="/" onClick={() => setMenuState(false)}>Home</Link></li>
+                  <li><Link to="/about" onClick={() => setMenuState(false)}>About</Link></li>
+                  <li><Link to="/favourites" onClick={() => setMenuState(false)}>Favourites</Link></li>
                </ul>
-               <Search receiveResults={receiveResults} setMenuState={setMenuState}/>
+               <Search RR={RR} setMenuState={setMenuState} />
             </div>
          </nav>
       </div>

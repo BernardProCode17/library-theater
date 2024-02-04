@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from '../../Components/service/api';
 import "./search.css";
 import { useNavigate } from "react-router-dom";
 
-function Search({ receiveResults, setMenuState }) {
-
+function Search({ RR, setMenuState }) {
+   console.log(typeof RR)
    const navigate = useNavigate()
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState([]);
@@ -25,22 +25,27 @@ function Search({ receiveResults, setMenuState }) {
       if (searchTerm.trim() !== '') {
          const searchData = await api.apiSearch(searchTerm)
          setSearchTermResults(searchData)
-         receiveResults(searchData.results)
          navigate('/search'); //it can only navigate to the search page if the button is clicked
          setMenuState(false);
          clearSearch();
       }
    }
 
-   return (
+   useEffect(() => {
 
+      if (searchTermResults.results) {
+
+         RR(searchTermResults.results)
+      }
+   }, [searchTermResults.results])
+
+
+   return (
       <form onSubmit={sendRequest} className="search-form">
          <label htmlFor="search-box" className="search-box"></label>
-         <input type="search" className="search-input" name="search-box" id="search-box" placeholder="Search" onChange={searchingTerms} value={searchTerm}/>
-         <input type="submit" className="search-button" value="Search"/>
+         <input type="search" className="search-input" name="search-box" id="search-box" placeholder="Search" onChange={searchingTerms} value={searchTerm} />
+         <input type="submit" className="search-button" value="Search" />
       </form>
-
-
    )
 }
 

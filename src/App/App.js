@@ -15,14 +15,14 @@ function App() {
 
   const [searchresults, setSearchresults] = useState([]);
 
-  const receiveResults = (results) => {
+  const RR = (results) => {
     setSearchresults(results);
   }
-
+console.log(typeof RR)
   return (
     <Router>
       <GlobalProvider>
-        <Header receiveResults={receiveResults} />
+        <Header RR={RR} />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<About />}></Route>
