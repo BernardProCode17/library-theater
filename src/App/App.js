@@ -18,7 +18,7 @@ function App() {
   const receiveResults = (results) => {
     setSearchresults(results);
   }
-  console.log(typeof receiveResults)
+  
   return (
     <Router>
       <GlobalProvider>
