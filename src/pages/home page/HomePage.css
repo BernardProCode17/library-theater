@@ -44,17 +44,25 @@
 
    & .articles {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       flex-wrap: wrap;
-      column-gap: 7rem;
+      column-gap: 3rem;
       align-content: center;
+      justify-content: center;
       margin: 0rem auto;
    }
 }
 
-@media(min-width: 25rem){
+@media(min-width: 25rem) {
 
-   .Categories .title-button{
+   .Categories .title-button {
       width: 330px
+   }
+}
+
+@media(min-width:31.25rem){
+
+   .articles{
+      column-gap: 0rem
    }
 }
