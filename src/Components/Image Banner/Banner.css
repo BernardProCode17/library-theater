@@ -2,8 +2,9 @@
    background-color: darkblue;
    position: relative;
    top: 30%;
+   z-index: 1;
 
-   & h1{
+   & h1 {
       text-align: center;
       margin: 0rem;
       position: absolute;
@@ -14,5 +15,13 @@
       font-weight: 700;
       background-color: darkblue;
       padding: 0.3rem;
+   }
+
+   & img {
+      width: 100vw;
+      height: 85vh;
+      object-fit: cover;
+      object-position: top,left;
+      z-index: -100;
    }
 }

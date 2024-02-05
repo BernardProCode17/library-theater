@@ -1,0 +1,56 @@
+.search-main {
+   background-color: aliceblue;
+   width: 90%;
+   margin: 1rem auto 0rem;
+}
+
+.search-list {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+}
+
+.search-list h2 {
+   font-size: 3rem
+}
+
+
+.search-list article {
+   border-radius: 0.625rem;
+   background-color: bisque;
+   margin: 0.5rem;
+   padding: 1rem;
+   width: 70vw;
+   height: auto;
+}
+
+.search-list img {
+   width: 100%;
+   margin: 0rem auto;
+}
+
+@media(min-width: 59.375rem) {
+   /* .search-list {
+      flex-direction: row;
+   } */
+
+   .search-articles {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 3rem auto;
+   }
+   
+   .search-list article {
+      width: 30%;
+      height: 50rem;
+      margin: 1rem;
+   }
+
+   .search-list img {
+      width: 100%;
+      margin: 0rem auto;
+   }
+}

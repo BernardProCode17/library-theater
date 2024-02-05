@@ -34,25 +34,27 @@ function VideoPlayer({ trailer, trailerKey }) {
          }
       }
    }
+   // <div className="videoPlayer-div">
+   //       </div>
 
    return (
-      <div className="videoPlayer-div">
-            <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
-            <iframe
-               title={trailer}
-               width='100%'
-               height='100%'
-               src={`https://www.youtube.com/embed/${trailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
-               frameborder="0"
-               allowFullScreen
-               loop
-               className="videoPlayer-iframe"
-            ></iframe>
-         </div>
+      <>
+         <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
+         <iframe
+            title={trailer}
+            width='100%'
+            height='100%'
+            src={`https://www.youtube.com/embed/${trailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
+            frameborder="0"
+            allowFullScreen
+            loop
+            className="videoPlayer-iframe"
+         ></iframe>
+      </>
    )
 }
 // <section className="videoPlayer">
-{/* </section > */}
+{/* </section > */ }
 
 
 export default VideoPlayer;

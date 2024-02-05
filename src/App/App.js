@@ -14,15 +14,15 @@ import { GlobalProvider } from '../Context/GlobalContext.js';
 function App() {
 
   const [searchresults, setSearchresults] = useState([]);
-
-  const RR = (results) => {
+  //
+  const receiveResults = (results) => {
     setSearchresults(results);
   }
-console.log(typeof RR)
+  console.log(typeof receiveResults)
   return (
     <Router>
       <GlobalProvider>
-        <Header RR={RR} />
+        <Header receiveResults={receiveResults} />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<About />}></Route>

@@ -5,7 +5,7 @@ import Search from "../search/search";
 
 
 
-function DeskTopNav({ RR }) {
+function DeskTopNav({ receiveResults }) {
 
    return (
       <section className='desktop-menu'>
@@ -25,10 +25,10 @@ function DeskTopNav({ RR }) {
                </ul>
             </nav>
 
+            <Search receiveResults={receiveResults} />
             {/* search bar component, refer to the component in the component folder */}
-            <div className="search-container">
-               <Search RR={RR} />
-            </div>
+            {/* <div className="search-container">
+            </div> */}
          </div>
       </section>
    )

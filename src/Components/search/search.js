@@ -3,8 +3,8 @@ import api from '../../Components/service/api';
 import "./search.css";
 import { useNavigate } from "react-router-dom";
 
-function Search({ RR, setMenuState }) {
-   console.log(typeof RR)
+function Search({ receiveResults, setMenuState }) {
+
    const navigate = useNavigate()
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState([]);
@@ -14,7 +14,6 @@ function Search({ RR, setMenuState }) {
    const searchingTerms = (e) => {
       setSearchTerm(e.target.value);
    };
-
    const clearSearch = () => {
       setSearchTerm('');
    };
@@ -24,21 +23,20 @@ function Search({ RR, setMenuState }) {
 
       if (searchTerm.trim() !== '') {
          const searchData = await api.apiSearch(searchTerm)
-         setSearchTermResults(searchData)
+         const datawithImages = searchData.results.filter(movie => movie.poster_path)
+         setSearchTermResults(datawithImages)
          navigate('/search'); //it can only navigate to the search page if the button is clicked
-         setMenuState(false);
          clearSearch();
       }
-   }
+   };
 
    useEffect(() => {
 
-      if (searchTermResults.results) {
+      if (searchTermResults) {
 
-         RR(searchTermResults.results)
+         receiveResults(searchTermResults)
       }
-   }, [searchTermResults.results])
-
+   }, [searchTermResults])
 
    return (
       <form onSubmit={sendRequest} className="search-form">

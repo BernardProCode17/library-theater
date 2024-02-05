@@ -13,7 +13,7 @@
       width: 90%;
       border: none;
       margin: 0rem auto;
-      border-bottom: 1.5px solid blue;
+      border-bottom: 0.0938rem solid blue;
       text-align: center;
       font-size: 1.7rem
    }
@@ -25,18 +25,39 @@
 
    & .search-button {
       border: none;
-      border-bottom: 1.5px solid blue;
+      border-bottom: 0.0938rem solid blue;
       background-color: transparent;
    }
 
    & .search-button:active {
       background-color: rgb(30, 30, 237);
       color: #FFF;
-      border-radius: 3px;
+      border-radius: 0.1875rem;
 
    }
 }
 
-@media(min-width: 59.375rem){
+@media(min-width: 59.375rem) {
+
+   /* background-color: aliceblue; */
    
+   .search-form {
+      /* margin: 1rem 1rem;
+      padding: 1rem; */
+      & .search-input {
+         width: 70%;
+         border-radius: 0.9375rem;
+         margin-top: 1rem;
+         font-size: 1.3rem;
+      }
+
+      & .search-button{
+         margin-top: 0.5rem;
+         padding: 0.3rem;
+         color: #fff;
+         background-color: rgba(245, 245, 245, 0.564);
+         border-radius: 7px;
+
+      }
+   }
 }
