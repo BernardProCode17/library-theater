@@ -39,7 +39,7 @@ function Footer() {
             </div>
 
          </nav>
-         <span className='copyright'><p>&copy; 2023</p></span>
+         <span className='copyright'><p> <span>2023</span> <span>&copy;</span></p></span>
 
       </footer >
    )
