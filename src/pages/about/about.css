@@ -4,12 +4,19 @@
 }
 
 .about-section {
-   /* background-color: green; */
    padding: 0.7rem;
 
    & h2 {
       width: max-content;
       margin: 0rem auto;
+   }
+
+   & .article-container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
    }
 
    & article {
@@ -21,12 +28,13 @@
       flex-direction: column;
       justify-content: center;
       align-self: center;
+      max-width: 25rem;
 
       & img {
          margin: 0.7rem auto;
-         border-radius: 10px;
-         width: 280px;
-         /* height: 12.5rem; */
+         border-radius: 0.625rem;
+         width: 17.5rem;
+         height: 12.5rem;
       }
 
       & .staff-info {
@@ -45,7 +53,19 @@
 }
 
 
+@media(min-width: 43.75rem) {
+   .about-section .article-container {
+      flex-direction: row;
+   }
+}
 
+@media(min-width: 1100px) {
+   .about-section .article-container {
+      max-width: 950px;
+      justify-content: center;
+      margin: 0rem auto;
+   }
+}
 
 
 .attribution {
@@ -56,12 +76,15 @@
    flex-direction: column;
    justify-content: center;
    align-content: center;
-   margin: 0rem auto;
+   margin: 1rem auto;
+   max-width: 95%;
+
 
    & img {
       width: 6.25rem;
       margin-top: 0.7rem;
    }
+
    & p {
       font-size: 1.1rem;
 
@@ -71,6 +94,19 @@
 
       & a {
          text-align: center;
+      }
+   }
+}
+
+@media(min-width: 43.75rem) {
+
+   .attribution {
+      margin-top: 2rem;
+      max-width: 70%;
+      text-align: center;
+
+      & img{
+         margin: 0.7rem auto;
       }
    }
 }

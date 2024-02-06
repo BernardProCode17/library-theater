@@ -19,9 +19,20 @@
 
    & img {
       width: 100vw;
-      height: 85vh;
+      height: 30%;
       object-fit: cover;
       object-position: top,left;
       z-index: -100;
+   }
+}
+
+@media(min-width: 59.375rem){
+
+   .banner-section h1{
+      left: 50%;
+   }
+
+   .banner-section img {
+      height: 70vh
    }
 }
