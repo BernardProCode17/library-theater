@@ -1,3 +1,4 @@
+import './searchDisplay.css'
 import { Link } from "react-router-dom";
 import api from "../Helper/api";
 
@@ -5,8 +6,8 @@ function SearchDisplay({ results }) {
    console.log(results)
 //auto scroll to the top when first loaded*****************************
    return (
-      <section>
-         <h2>Search Result</h2>
+      <section className="search-section">
+         <h1 className="h1">Search Result</h1>
          {results && results.map((result) => {
             const { overview, title, poster_path, release_date } = result || [];
             return(

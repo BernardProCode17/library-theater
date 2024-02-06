@@ -1,5 +1,8 @@
+.title{
+visibility: hidden;
+}
+
 .Categories {
-   /* background-color: darkblue; */
    width: 100%;
    padding: 0rem;
    display: flex;
@@ -53,30 +56,3 @@
    }
 }
 
-@media(min-width: 25rem) {
-
-   .Categories .title-button {
-      width: 20.625rem
-   }
-}
-
-@media(min-width:31.25rem) {
-
-   .articles {
-      column-gap: 0rem
-   }
-}
-
-@media(min-width: 950px) {
-
-   .Categories .articles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: auto;
-      justify-content: center;
-   }
-
-   .Categories .articles > * {
-      height: 1100px;
-   }
-}

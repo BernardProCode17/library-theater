@@ -15,7 +15,7 @@ function MovieDisplay({ movie }) {
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
 
         <div className="MovieDetails">
-          <h3>{title}</h3>
+          <h3>{excerpt(title, 10)}</h3> {/* the excerpt is to cut the titles short of they are to long and break the layout */}
 
           <div className="numberInfo visible">
             <p>Release Date:<br></br>{release_date}</p>

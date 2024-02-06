@@ -1,0 +1,72 @@
+.search-main {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 0.5rem;
+   
+   & h1 {
+      color: #fff;
+      font-size: 3rem;
+      text-align: center;
+   }
+   
+   & .search-articles {
+      display: flex;
+      flex-direction: rows;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
+      margin: 0.3rem;
+      border-radius: 0.625rem;
+   }
+}
+
+.movieArticle {
+   display: flex;
+   flex-direction: column;
+   justify-self: center;
+   align-items: center;
+   background-color: #acacd5;
+   margin: 1rem;
+   border-radius: 0.625rem;
+   width: 15.625rem;
+   height: 600px;
+
+   & img {
+      border-top-left-radius: 0.625rem;
+      border-top-right-radius: 0.625rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 250px;
+      height: 350px;
+      object-fit: cover;
+   }
+
+   & h3 {
+      text-align: center;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: blue;
+      border-bottom: 3px solid blue;
+   }
+
+   & .overview{
+      margin: 0rem 0.9rem;
+      font-size: 0.9rem;
+      width: 250px;
+      padding: 1rem;
+   }
+   
+   & .year{
+      margin: 0rem 0.9rem;
+      font-size: 0.9rem;
+      text-align: center;
+   }
+
+   & .link{
+      font-size: 1.3rem;
+
+   }
+}
