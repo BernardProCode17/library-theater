@@ -1,5 +1,5 @@
 function excerpt(overview, maxWords) {
-   if (overview.length > maxWords) {
+   if (overview && overview.length > maxWords) {
       return overview.substring(0, maxWords) + '...'
    } else {
       return overview;

@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalContext';
 import './svg_styles.css'
 
 function Favourites() {
-   const { favorites, addToFavorites, removeFromFavourites } = useContext(GlobalContext)
-   console.log(favorites)
-
+   const { favorites, addToFavorites, removeFromFavorites } = useContext(GlobalContext)
    const svgIcons = {
       favourites: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='add remove'>
          <path d="M22.813 7.338a6.736 6.736 0 0 0-3.8-4.49c-3.206-1.471-6 .878-7.016 1.9-1.013-1.025-3.813-3.374-7.016-1.9a6.736 6.736 0 0 0-3.8 4.49 5.818 5.818 0 0 0 1 4.98c1.708 2.215 9.156 8.891 9.472 9.174a.514.514 0 0 0 .688 0c.316-.283 7.764-6.959 9.472-9.174a5.815 5.815 0 0 0 1-4.98zM21 11.689c-1.448 1.878-7.488 7.362-9 8.726-1.512-1.364-7.552-6.848-9-8.726a4.8 4.8 0 0 1-.812-4.1 5.711 5.711 0 0 1 3.226-3.8c2.229-1.027 4.731.311 6.186 2.05a.516.516 0 0 0 .4.188.516.516 0 0 0 .4-.188c.029-.035 2.958-3.536 6.188-2.055a5.714 5.714 0 0 1 3.226 3.8A4.8 4.8 0 0 1 21 11.689z" />
@@ -17,19 +15,16 @@ function Favourites() {
          <path d="M10.521 10.476a3.372 3.372 0 0 0-1.9 2.251 2.947 2.947 0 0 0 .508 2.525.515.515 0 0 0 .816-.629 1.929 1.929 0 0 1-.324-1.65 2.353 2.353 0 0 1 1.329-1.56.515.515 0 0 0-.43-.937z" />
       </svg>
    }
-
    const addToFavoritesClick = () => {
       addToFavorites(favorites);
    }
-
    const removeFromFavoritesClick = () => {
-      removeFromFavourites(favorites);
+      removeFromFavorites(favorites);
    }
-
    const isFavourite = favorites.some(favMovie => favMovie.id === favorites.id);
 
    return (
-      <button style={{ width: '2.5rem' }} onClick={isFavourite ? () => removeFromFavoritesClick : () => addToFavoritesClick}>
+      <button style={{ width: '2.5rem' }} onClick={isFavourite ? () => removeFromFavoritesClick() : () => addToFavoritesClick()}>
          {svgIcons.favourites || svgIcons.allTimeFavourites}
       </button>
    )
@@ -47,20 +42,20 @@ export default Favourites;
 
 
 
-   // const favMovie = JSON.parse(localStorage.getItem('MovieId')) || [];
-   //       setArrayStorage(favMovie)
-   //    }, [])
-   //    function addToStorage() {
-   //       if (arrayStorage.includes(id)) return;
-   //       const storeFav = [...arrayStorage, id];
-   //       setArrayStorage(storeFav);
-   //       localStorage.setItem("MovieId", JSON.stringify(storeFav));
-   //    }
-   //    function RemovefromStorage() {
-   //       // const favMovie = JSON.parse(localStorage.getItem('MovieId')) || [];
-   //       const remove = arrayStorage.filter(movieID => movieID !== id);
-   //       setArrayStorage(remove);
-   //       // setArrayStorage(favMovie => favMovie.filter(movieID => movieID !== id));
-   //       localStorage.setItem("MovieId", JSON.stringify(remove));
-   //    }
-   //    const storageManagement = favorites.some((favMovie) => favMovie.id === movie.id )
+// const favMovie = JSON.parse(localStorage.getItem('MovieId')) || [];
+//       setArrayStorage(favMovie)
+//    }, [])
+//    function addToStorage() {
+//       if (arrayStorage.includes(id)) return;
+//       const storeFav = [...arrayStorage, id];
+//       setArrayStorage(storeFav);
+//       localStorage.setItem("MovieId", JSON.stringify(storeFav));
+//    }
+//    function RemovefromStorage() {
+//       // const favMovie = JSON.parse(localStorage.getItem('MovieId')) || [];
+//       const remove = arrayStorage.filter(movieID => movieID !== id);
+//       setArrayStorage(remove);
+//       // setArrayStorage(favMovie => favMovie.filter(movieID => movieID !== id));
+//       localStorage.setItem("MovieId", JSON.stringify(remove));
+//    }
+//    const storageManagement = favorites.some((favMovie) => favMovie.id === movie.id )

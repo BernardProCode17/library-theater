@@ -5,6 +5,7 @@ export const GlobalContext = createContext();
 
 // Create the provider component
 export function GlobalProvider({ children }) {
+
   // helper function to load from local storage
   function loadFromLocalStorage() {
     const localData = localStorage.getItem("favorites");
@@ -15,15 +16,20 @@ export function GlobalProvider({ children }) {
   const [favorites, setFavorites] = useState(loadFromLocalStorage());
 
   // helper function to add a favorite
-
   function addToFavorites(favorite) {
     const newFavorites = [...favorites, favorite];
     setFavorites(newFavorites);
   }
 
-  // helper function to remove a favorite
 
+  // helper function to remove a favorite
   function removeFromFavorites(favorite) {
+
+    if (!favorite) {
+      console.error('Favourites is undefined')
+      return;
+    }
+
     const newFavorites = favorites.filter((fav) => {
       return fav.id !== favorite.id;
     });
@@ -37,13 +43,7 @@ export function GlobalProvider({ children }) {
   }, [favorites]);
 
   return (
-    <GlobalContext.Provider
-      value={{
-        favorites: favorites,
-        addToFavorites: addToFavorites,
-        removeFromFavorites: removeFromFavorites,
-      }}
-    >
+    <GlobalContext.Provider value={{ favorites: favorites, addToFavorites: addToFavorites, removeFromFavorites: removeFromFavorites, }}>
       {children}
     </GlobalContext.Provider>
   );

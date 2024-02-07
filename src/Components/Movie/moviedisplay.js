@@ -4,7 +4,7 @@ import excerpt from "../service/excerpt"
 import { Link } from "react-router-dom";
 import Favourites from "../service/favourites";
 
-function MovieDisplay({ movie }) {
+function MovieDisplay({ movie, removeMovie}) {
 
   const { title, overview, poster_path, release_date, popularity, id } = movie || {};
 

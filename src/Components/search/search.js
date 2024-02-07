@@ -1,4 +1,4 @@
-i
+import './search.css'
 import { useEffect, useState } from "react";
 import api from '../../Components/service/api';
 import { useNavigate } from "react-router-dom";
@@ -8,8 +8,6 @@ function Search({ receiveResults, setMenuState }) {
    const navigate = useNavigate()
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState([]);
-
-   console.log(searchTermResults)
 
    const searchingTerms = (e) => {
       setSearchTerm(e.target.value);
