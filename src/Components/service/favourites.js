@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '../../Context/GlobalContext';
 import './svg_styles.css'
 
-function Favourites() {
+function Favourites({movie}) {
    const { favorites, addToFavorites, removeFromFavorites } = useContext(GlobalContext)
    const svgIcons = {
       favourites: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='add remove'>
@@ -16,13 +16,18 @@ function Favourites() {
       </svg>
    }
    const addToFavoritesClick = () => {
-      addToFavorites(favorites);
+      addToFavorites(movie);
    }
-   const removeFromFavoritesClick = () => {
-      removeFromFavorites(favorites);
-   }
-   const isFavourite = favorites.some(favMovie => favMovie.id === favorites.id);
 
+console.log(movie)
+
+   const removeFromFavoritesClick = () => {
+      removeFromFavorites(movie);
+   }
+ console.log(favorites)
+
+   const isFavourite = favorites.find(favMovie => favMovie.id === movie.id);
+   // const favouritesData = favorites.find(favmovie => favmovie.id === Movie.id); 
    return (
       <button style={{ width: '2.5rem' }} onClick={isFavourite ? () => removeFromFavoritesClick() : () => addToFavoritesClick()}>
          {svgIcons.favourites || svgIcons.allTimeFavourites}

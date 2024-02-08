@@ -34,12 +34,11 @@ function VideoPlayer({ trailer, trailerKey }) {
          }
       }
    }
-   // <div className="videoPlayer-div">
-   //       </div>
 
    return (
-      <>
+      <div>
          <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
+
          <iframe
             title={trailer}
             width='100%'
@@ -49,12 +48,11 @@ function VideoPlayer({ trailer, trailerKey }) {
             allowFullScreen
             loop
             className="videoPlayer-iframe"
-         ></iframe>
-      </>
+         >
+         </iframe>
+      </div>
+
    )
 }
-// <section className="videoPlayer">
-{/* </section > */ }
-
 
 export default VideoPlayer;
