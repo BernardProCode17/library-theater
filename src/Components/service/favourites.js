@@ -19,17 +19,14 @@ function Favourites({movie}) {
       addToFavorites(movie);
    }
 
-console.log(movie)
-
    const removeFromFavoritesClick = () => {
       removeFromFavorites(movie);
    }
- console.log(favorites)
-
+ 
    const isFavourite = favorites.find(favMovie => favMovie.id === movie.id);
    // const favouritesData = favorites.find(favmovie => favmovie.id === Movie.id); 
    return (
-      <button style={{ width: '2.5rem' }} onClick={isFavourite ? () => removeFromFavoritesClick() : () => addToFavoritesClick()}>
+      <button style={{ width: '2.5rem', margin: '1rem' }} onClick={isFavourite ? () => removeFromFavoritesClick() : () => addToFavoritesClick()}>
          {svgIcons.favourites || svgIcons.allTimeFavourites}
       </button>
    )

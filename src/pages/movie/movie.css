@@ -2,28 +2,50 @@
    background-color: darkblue;
    padding: 0.3rem;
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
    color: #fff;
+   margin: 0rem auto;
+}
+
+.movie-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 
    & h1 {
-   text-align: center;
+      text-align: center;
       font-size: 2.5rem;
       margin: 1rem auto;
    }
 
    & img {
       border-radius: 0.625rem;
+      width: 100%;
+      height: auto;
    }
 
    & .overview {
-      width: 100%;
-      padding: 0.7rem;
+      width: 31.25rem;
+      padding: 3rem;
       background-color: rgb(240, 248, 255, 0.3);
       border-radius: 0.625rem;
-    
+      background-color: darkblue;
+
    }
+
+}
+
+.info-container {
+   background-color: darkblue;
+   width: 31.25rem;
+   border-radius: 0.625rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
 }
 
 .top-info,
@@ -31,24 +53,23 @@
    display: inline-flex;
    justify-content: space-between;
    align-items: center;
-   column-gap: 7rem;
+   column-gap: 10rem;
    padding: 0rem 0.5rem;
 }
 
-.genre{
-   /* background-color: rgb(6, 229, 229); */
+.genre {
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    column-gap: 0.3rem;
    text-align: center;
-   
-   & .genre-title{
+   margin-bottom: 1rem;
+   & .genre-title {
       text-align: left;
       font-weight: 700;
       margin-right: 0.5rem;
    }
-   
-   & > p{
+
+   &>p {
       margin: 0rem;
    }
 }
