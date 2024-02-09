@@ -14,14 +14,13 @@ function Favourites() {
       <>
          <Banner image={favourites_page_header} h1={h1} alt={alt} />
          <main className="fav-main">
-            <section>
-               <h2>Recent Favourites</h2>
+            <h2>Recent Favourites</h2>
+            <section className="favDisplay">
 
                {favourites.favorites && favourites.favorites.length === 0 ?
                   <p>You currently don't have any favourites movies</p> :
                   favourites.favorites.map(movie => <MovieDisplay key={movie.id} movie={movie} />)
                }
-
             </section>
 
             {/* To be Worked on later ***********************    */}

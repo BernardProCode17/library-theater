@@ -18,7 +18,6 @@ function Header({ receiveResults }) {
       window.removeEventListener('resize', resize)
     };
   }, []);
-
   return (
     <header className="mainHeader">
       {devicewidth ? <DeskTopNav receiveResults={receiveResults} /> : <MobileNav receiveResults={receiveResults} />}

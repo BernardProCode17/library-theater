@@ -1,0 +1,13 @@
+.video-Trailer{
+   /* position: relative; */
+   overflow: hidden;
+   width: 100%;
+   padding-top: 56.25%;
+   
+}
+.videoPlayer-iframe{
+   top: 0;
+   left: 0; 
+   width: 100vw;
+   height: 90vh;      
+}

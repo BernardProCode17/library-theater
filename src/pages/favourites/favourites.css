@@ -1,8 +1,22 @@
-.fav-main{
+.fav-main {
    background-color: darkblue;
    color: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 
-   & h1 {
-      margin: 0rem;
+   & .favDisplay {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin:  1rem auto;
+   }
+
+   & p {
+      font-size: 2rem;
+      text-align: center;
    }
 }

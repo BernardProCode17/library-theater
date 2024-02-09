@@ -36,13 +36,13 @@ function VideoPlayer({ trailer, trailerKey }) {
    }
 
    return (
-      <div>
+      <div className="video-trailer">
          <button type="button" className='muteButton' onClick={toggleMute}>{videoMute ? SVG.mute() : SVG.unmute()}</button>
 
          <iframe
             title={trailer}
             width='100%'
-            height='100%'
+            height='100vh'
             src={`https://www.youtube.com/embed/${trailer || movieKey()}?autoplay=1&mute=${videoMute ? 1 : 0}&controls=0&loop=1&modestbranding}`}
             frameborder="0"
             allowFullScreen
