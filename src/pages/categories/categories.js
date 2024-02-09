@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import api from "../../Components/service/api";
 import './categories.css';
 import MovieDisplay from "../../Components/Movie/moviedisplay";
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 import listName from "../../Components/service/listName";
+import BackButton from "../../Components/Back Button/BackButton";
 // import Pages from '../../Components/pagesresults/Pages';
 
 function Categories() {
@@ -12,7 +13,6 @@ function Categories() {
    const listnameTLC = listname.toLowerCase();
    const [displayList, setDisplayList] = useState([])
    const [headerVideo, setHeaderVideo] = useState('');
-
 
    useEffect(() => {
       fetch(`${api.apiURL}${api.apiListing[listname]}`)
@@ -50,7 +50,9 @@ function Categories() {
 
       fetchRandomMovieTrailer();
    }, [listname, listnameTLC]);
-   
+
+
+
    return (
       <>
          {/* Video Trailer for the movie categories */}
@@ -59,11 +61,11 @@ function Categories() {
          {/* map over the movie cotegory pass the information to the movieDisplay component and render the list of movies */}
          <main className="categories">
             <h1>{listName(listname)}</h1>
-            <button type="button" className="backButton">Back</button>
+            <BackButton />
             <div className="main-articles">
-            {displayList.map((movie, index) => {
-               return <MovieDisplay key={index} movie={movie} />;
-            })}
+               {displayList.map((movie, index) => {
+                  return <MovieDisplay key={index} movie={movie} />;
+               })}
             </div>
          </main>
       </>

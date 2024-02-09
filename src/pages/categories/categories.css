@@ -16,25 +16,6 @@
       line-height: 1;
    }
 
-   & .backButton {
-      width: 5.625rem;
-      height: 3.125rem;
-      margin: 0.5rem auto;
-      background-color: none;
-      text-align: center;
-      font-size: 1.5rem;
-      background-color: transparent;
-      border: none;
-      color: #fff;
-   }
-
-   & .backButton:hover,
-   .backButton:active {
-      text-decoration: underline;
-      background-color: #ffffff2d;
-      border-radius: 10px;
-   }
-
    & .articles {
       display: flex;
       flex-direction: row;

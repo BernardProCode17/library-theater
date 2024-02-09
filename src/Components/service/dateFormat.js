@@ -1,8 +1,11 @@
 function DateFormate(date) {
-   console.log(typeof date)
-   const dateString = date.split('');
-   console.log(dateString)
-   return dateString
+
+   const split = date.split('-')
+   const toNumber = split.map((str) => Number(str))
+   const newDate = new Date(toNumber)
+   const formatte = newDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+   return formatte;
 }
 
 export default DateFormate
