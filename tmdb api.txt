@@ -1,4 +1,0 @@
-tmdb
-
-username: student-Bernard
-password: apipassword 
