@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams} from "react-router-dom"
 import api from "../../Components/service/api";
 import './categories.css';
 import MovieDisplay from "../../Components/Movie/moviedisplay";
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 import listName from "../../Components/service/listName";
 import BackButton from "../../Components/Back Button/BackButton";
-// import Pages from '../../Components/pagesresults/Pages';
 
 function Categories() {
    const { listname } = useParams();
@@ -19,8 +18,6 @@ function Categories() {
          .then(response => response.json())
          .then(data => {
             setDisplayList(data.results);
-            // console.log(data)
-            // setTotalPages(data.total_pages)
          });
    }, [listname]);
 
@@ -40,7 +37,7 @@ function Categories() {
          // Find a video with the type trailer from the movie
          const trailer = videoData.results.find((video) => video.type === "Trailer");
 
-         // set the movie trailer key 
+         // set the movie trailer key
          if (trailer) {
             setHeaderVideo(trailer.key);
          } else {

@@ -11,15 +11,16 @@ function HomePage() {
   // need a function to display the listins in a section tag with the movie articles
   const [MovieListing, setMovieListing] = useState({});
 
-
+  //Home Page Movie Fetch
   useEffect(() => {
+    // fetchs all the listing with the api object
     const listingApi = async () => {
       const responses = await Promise.all(
         Object.values(api.apiListing).map((links) =>
           axios.get(`${api.apiURL}${links}`)
         )
       );
-
+        // places the response in an array with a key for the index and the result object for each key in the data varibale
       const data = Object.fromEntries(
         responses.map((responses, index) => [
           Object.keys(api.apiListing)[index],
@@ -31,9 +32,10 @@ function HomePage() {
     };
 
     listingApi();
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // scroll to top when listing is loaded
   }, []);
 
+  // Home Page video fetch
   const [headerVideo, setHeaderVideo] = useState('');
   useEffect(() => {
     async function fetchRandomMovieTrailer() {
@@ -48,6 +50,7 @@ function HomePage() {
       const videoResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api.apiKey}`);
       const videoData = await videoResponse.json();
 
+      // find the trailer for the movie
       const trailer = videoData.results.find((video) => video.type === "Trailer");
 
       if (trailer) {
@@ -65,17 +68,23 @@ function HomePage() {
       <VideoPlayer trailer={headerVideo} />
       <main>
         <h1 className="title">Library Theater Homepage</h1>
-        {Object.entries(MovieListing).map(([list, movies, index]) => {
+
+        {/* map over each movie list */}
+        {Object.entries(MovieListing).map(([list, movies]) => {
           const listUrl = list.replace(" ", "_");
           return (
-            <section key={index} id={list.id} className="Categories">
+            //section for each list
+            <section key={list.id} id={list.id} className="Categories">
 
+              {/* section title */}
               <div className="title-button">
                 <h2>{listName(list)}</h2>
 
+                {/* Link to the list page */}
                 <Link to={`/Categories/${listUrl}/`}>{list}</Link>
               </div>
 
+              {/* movie display - grid */}
               <div className="articles">
                 {movies.slice(0, 4).map((movie) =>
                   <MovieDisplay key={movie.id} movie={movie} />)

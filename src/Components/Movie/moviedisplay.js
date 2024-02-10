@@ -10,6 +10,7 @@ function MovieDisplay({ movie }) {
 
   const { title, overview, poster_path, release_date, vote_average, id } = movie || {};
 
+  // Movies display component used to display the list of movie for the home page, listing pages and the favourites pages 
 
   return (
     <>
@@ -17,7 +18,7 @@ function MovieDisplay({ movie }) {
         <img src={`${api.apiImage}${poster_path}`} alt={title} />
 
         <div className="MovieDetails">
-          <h3>{title}</h3> {/* the excerpt is to cut the titles short of they are to long and break the layout */}
+          <h3>{title}</h3>
 
           <div className="numberInfo visible">
             <p>Release Date:<br></br>{DateFormate(release_date)}</p>

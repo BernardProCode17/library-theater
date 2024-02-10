@@ -27,8 +27,7 @@ function DeskTopNav({ receiveResults }) {
 
             <Search receiveResults={receiveResults} />
             {/* search bar component, refer to the component in the component folder */}
-            {/* <div className="search-container">
-            </div> */}
+
          </div>
       </section>
    )

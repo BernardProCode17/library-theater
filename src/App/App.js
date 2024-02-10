@@ -12,13 +12,13 @@ import { GlobalProvider } from '../Context/GlobalContext.js';
 
 
 function App() {
-
+  // Receive the search result from the search component in the header
   const [searchresults, setSearchresults] = useState([]);
-  //
+
   const receiveResults = (results) => {
     setSearchresults(results);
   }
-  
+
   return (
     <Router basename="/library-theater">
       <GlobalProvider>
@@ -29,7 +29,7 @@ function App() {
           <Route path="/favourites" element={<Favourites />}></Route>
           <Route path="/movie/:id" element={<Movie />}></Route>
           <Route path="/categories/:listname" element={<Categories />}></Route>
-          <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>
+          <Route path="/search" element={<SearchDisplay results={searchresults} />}></Route>{/* displays the search result as a page */}
         </Routes>
         <Footer />
       </GlobalProvider>

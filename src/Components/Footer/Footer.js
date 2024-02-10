@@ -1,12 +1,14 @@
 import './Footer.css';
 import logo from '../../media/logo.png';
 import { Link } from 'react-router-dom';
+import currentYear from '../service/Year';
 
 function Footer() {
 
    return (
       <footer className='footer'>
 
+         {/* Linked logo */}
          <div className='logo'>
             <Link to="/">
                <img src={logo} alt="library theater logo" width={150} className='footer-logo' />
@@ -39,7 +41,8 @@ function Footer() {
             </div>
 
          </nav>
-         <span className='copyright'><p> <span>2023</span> <span>&copy;</span></p></span>
+         {/* auto update the year */}
+         <span className='copyright'><p> <span>{currentYear()}</span> <span>&copy;</span></p></span>
 
       </footer >
    )

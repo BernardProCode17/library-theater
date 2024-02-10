@@ -4,7 +4,7 @@ import api from "../Helper/api";
 
 function SearchDisplay({ results }) {
    console.log(results)
-//auto scroll to the top when first loaded*****************************
+
    return (
       <section className="search-section">
          <h1 className="h1">Search Result</h1>

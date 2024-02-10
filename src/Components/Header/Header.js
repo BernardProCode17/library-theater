@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 function Header({ receiveResults }) {
   const [devicewidth, setDevicewidth] = useState(window.innerWidth >= 320)
-
+  // changes the menu base on viewpoint size
   useEffect(() => {
-
+    // get the broswer window width, which change the menu at 950px (laptop screen)
     function resize() {
       return setDevicewidth(window.innerWidth >= 950)
     };
@@ -18,6 +18,8 @@ function Header({ receiveResults }) {
       window.removeEventListener('resize', resize)
     };
   }, []);
+
+
   return (
     <header className="mainHeader">
       {devicewidth ? <DeskTopNav receiveResults={receiveResults} /> : <MobileNav receiveResults={receiveResults} />}

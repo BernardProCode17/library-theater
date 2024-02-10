@@ -4,7 +4,7 @@ import './videoPlayer.css'
 function VideoPlayer({ trailer, trailerKey }) {
    const [videoMute, setVideoMute] = useState(true)
 
-   // Mute Button
+   // Mute Button toggle
    const toggleMute = (e) => {
       e.preventDefault();
       setVideoMute(!videoMute)
@@ -22,7 +22,7 @@ function VideoPlayer({ trailer, trailerKey }) {
          </svg>
       )
    }
-   // Trailer key finder
+   // find the first or second key from the trailer video array 
    const movieKey = function () {
       if (trailerKey) {
          if (trailerKey[0]) {

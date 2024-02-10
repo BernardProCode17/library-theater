@@ -1,3 +1,4 @@
+// Function that formate the release date
 function DateFormate(date) {
 
    const split = date.split('-')

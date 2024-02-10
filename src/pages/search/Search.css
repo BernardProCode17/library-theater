@@ -1,4 +1,4 @@
-.search-main {
+.search-main .categories{
    display: flex;
    flex-direction: column;
    justify-content: center;

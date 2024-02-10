@@ -13,10 +13,13 @@ function Movie() {
   const { id } = useParams();
   const { title, overview, poster_path, vote_average, release_date, runtime, status, genres, backdrop_path } = details || {};
   const backdrop = `https://image.tmdb.org/t/p/w500${backdrop_path}`
-  
+
+  //Fetch the single movie base on the movie id passed from the query parameter
+  // fliters it for the trailer
+  // set the video in the videoPlayer component and the fill out the movie details
   useEffect(() => {
     api.getMovie(id)
-    .then(data => {
+      .then(data => {
         setDetails(data)
         const trailerFilter = data.videos.results.filter((video) => video.type === 'Trailer'); // Filter the movie date video by trailer
         setTrailerKey(trailerFilter.map((video) => video.key)); // Set the movie video key to video player
@@ -24,39 +27,17 @@ function Movie() {
 
   }, [id])
 
-
-//   async function DateFormate(date) {
-//     console.log(date)
- 
-//     if (!date) {
-//        console.error('Date is undefined')
-//     }
- 
-//     const split = date.split('-')
-//     console.log(split)
- 
-//     const toNumber = split.map((str) => Number(str))
-//     console.log(toNumber);
- 
-//     const newDate = new Date(toNumber)
-//     console.log(newDate)
- 
-//     const formatte = newDate.toLocaleDateString('en-US',
-//        { month: 'long', day: 'numeric', year: 'numeric' });
-//     console.log(formatte)
- 
-//     return formatte;
-//  }
-
-
   return (
     <>
       <VideoPlayer trailerKey={trailerKey} />
+      {/* movie backdrop */}
       <main className="movie-main" style={{ backgroundImage: `url(${backdrop})`, backgroundRepeat: "no-repeat", backgroundSize: 'cover', width: '100%' }}>
         <section className="movie-container">
 
+          {/* go back to the last location before this page */}
           <BackButton />
 
+          {/* movie details */}
           <h1>{title}</h1>
           <img src={`${api.apiImage}${poster_path}`} alt={title} />
 
@@ -80,6 +61,7 @@ function Movie() {
               {genres && genres.map((genre) => (<p key={genre.id}>{genre.name}</p>))}
             </div>
 
+            {/* add to favourites button */}
             <Favourites movie={details} />
 
           </div>

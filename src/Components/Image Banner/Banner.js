@@ -1,6 +1,6 @@
 import './Banner.css'
-function Banner({ image, h1, alt}) {
-
+function Banner({ image, h1, alt }) {
+   // banner for the about and the favorites pages 
    return (
       <section className='banner-section'>
          <h1>{h1}</h1>

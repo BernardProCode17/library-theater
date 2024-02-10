@@ -8,6 +8,7 @@ import './Mobile_Nav.css';
 function MobileNav({ receiveResults }) {
    const [menuState, setMenuState] = useState(false);
 
+   // toggle on and off the mobile menu 
    function menuToggle() {
       setMenuState(!menuState);
    }
@@ -20,12 +21,13 @@ function MobileNav({ receiveResults }) {
                <img src={logo} className="mobile-logo" alt="Logo of library Theater company" />
             </Link>
 
-            {!menuState ? 
+            {/* open and close menu svg buttons */}
+            {!menuState ?
                <button type="button" onClick={menuToggle} className="menu_svg">
                   <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50">
                      <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
                   </svg>
-               </button>  : 
+               </button> :
                <button type="button" onClick={menuToggle} className="menu_svg">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="blue" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x">
                      <line x1="18" y1="6" x2="6" y2="18"></line>

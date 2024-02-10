@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"; 
 import './BackButton.css'
 
+
+// function for the back button to go back to the previous pages
 function BackButton() {
    const history = useNavigate();
 

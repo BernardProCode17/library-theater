@@ -5,10 +5,25 @@
 
 .about-section {
    padding: 0.7rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
 
    & h2 {
       width: max-content;
       margin: 0rem auto;
+   }
+
+   & .about-info {
+      max-width: 800px;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0rem auto;
+
+      & .bold{
+         font-weight: 800;
+      }
    }
 
    & .article-container {
@@ -17,6 +32,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      column-gap: 1rem;
    }
 
    & article {
@@ -29,6 +45,7 @@
       justify-content: center;
       align-self: center;
       max-width: 25rem;
+      height: 50rem;
 
       & img {
          margin: 0.7rem auto;
@@ -105,7 +122,7 @@
       max-width: 70%;
       text-align: center;
 
-      & img{
+      & img {
          margin: 0.7rem auto;
       }
    }

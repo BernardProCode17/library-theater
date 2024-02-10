@@ -3,22 +3,27 @@ import { useEffect, useState } from "react";
 import api from '../../Components/service/api';
 import { useNavigate } from "react-router-dom";
 
-function Search({ receiveResults, setMenuState }) {
+function Search({ receiveResults }) {
 
    const navigate = useNavigate()
    const [searchTerm, setSearchTerm] = useState("");
    const [searchTermResults, setSearchTermResults] = useState([]);
 
+   // gets the letter pressed 
    const searchingTerms = (e) => {
       setSearchTerm(e.target.value);
    };
+
+   // clears the search bar once items searched 
    const clearSearch = () => {
       setSearchTerm('');
    };
 
+   // API request for the search term
    async function sendRequest(e) {
       e.preventDefault();
 
+      // only returns movies with images
       if (searchTerm.trim() !== '') {
          const searchData = await api.apiSearch(searchTerm)
          const datawithImages = searchData.results.filter(movie => movie.poster_path)
@@ -29,12 +34,14 @@ function Search({ receiveResults, setMenuState }) {
    };
 
    useEffect(() => {
-
+      // Get the search results and pass it back up to the app component for the for the search display component 
       if (searchTermResults) {
          receiveResults(searchTermResults)
-      }}, [searchTermResults])
+      }
+   }, [searchTermResults])
 
    return (
+      // Search form the movie search
       <form onSubmit={sendRequest} className="search-form">
          <label htmlFor="search-box" className="search-box"></label>
          <input type="search" className="search-input" name="search-box" id="search-box" placeholder="Search" onChange={searchingTerms} value={searchTerm} />

@@ -1,3 +1,4 @@
+// API object with the api endpoints and methods
 const api = {
   apiURL: "https://api.themoviedb.org/3",
   apiKey: process.env.REACT_APP_API_KEY,
@@ -26,12 +27,6 @@ const api = {
     return await response.json();
   },
 
-  
-  // apiMovieVideo: async function (id){
-  //   const response = await fetch(`${this.apiURL}/movie/${id}/videos?api_key=${api.apiKey}`);
-  //   return await response.json();
-  // },
-
   apiTrailer: async function (movie_id) {
     const response = await fetch(`${this.apiURL}${this.apiVideo}?${this.apiKey}`)
     return await response.json();
@@ -40,7 +35,6 @@ const api = {
   apiSearch: async function (searchterm) {
     const response = await fetch(`${this.apiURL}${this.apiSearchURL}?api_key=${this.apiKey}&query=${searchterm}`);
     const data = await response.json();
-    // console.log(data)
     return data;
   }
 }
