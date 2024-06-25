@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/libray-theater/static/css/main.f65aaf2a.css",
+    "main.js": "/libray-theater/static/js/main.46b9397f.js",
+    "static/media/logo.png": "/libray-theater/static/media/logo.d8ee9ba1ebb3738953be.png",
+    "static/media/tmdb_logo.svg": "/libray-theater/static/media/tmdb_logo.bb8aa703cb92c9aa31fc1e0b17850ed9.svg",
+    "index.html": "/libray-theater/index.html",
+    "main.f65aaf2a.css.map": "/libray-theater/static/css/main.f65aaf2a.css.map",
+    "main.46b9397f.js.map": "/libray-theater/static/js/main.46b9397f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f65aaf2a.css",
+    "static/js/main.46b9397f.js"
+  ]
+}
